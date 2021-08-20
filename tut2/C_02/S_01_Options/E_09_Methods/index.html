@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Getting to Know Vue.js</title>
+</head>
+
+<body>
+    <!-- Div to Mount App -->
+    <div id="app"></div>
+
+    <!-- Reference to Vue.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <!-- Script Element for our App -->
+    <script>
+        var app = new Vue({
+            el: '#app',
+            methods: {
+                // When creating methods for our Vue instance, we need to avoid using the arrow function 
+                // ()=>{}, as it will prevent us from being able to access the proper context of "this"
+                userClickedAButton: function() {
+                    // Do Something Cool and Meaningful here!!!
+                    console.log('Something Cool!');
+                }
+            }
+        });
+    </script>
+
+
+</body>
+
+</html>
+
+</body>
+
+</html>

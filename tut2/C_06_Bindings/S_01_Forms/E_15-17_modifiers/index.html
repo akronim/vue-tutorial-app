@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Getting to Know Vue.js</title>
+</head>
+
+<body>
+    <!-- 
+Vue provides us with three modifiers to use with inputs:
+• .lazy: Uses the change event instead of the input event to update the data model.
+• .number: Tries to cast the value to a number when assigning it to the data model.
+• .trim: Removes the whitespace when assigning to the data model. 
+    -->
+
+    <!-- Div to Mount App -->
+    <div id="app">
+        <h4>Lazy</h4>
+        <input v-model.lazy="lazy" type="text" />
+        <p>
+            <strong>Lazy:</strong> {{lazy}}
+        </p>
+
+        <h4>Number</h4>
+        <input v-model.number="number" type="text" />
+        <p>
+            <strong>Number:</strong> {{number}}
+        </p>
+        <p>
+            <strong>Type of Number:</strong> {{typeof number}}
+        </p>
+
+        <h4>No Trim</h4>
+        <input v-model="noTrim" type="text" />
+        <p>
+            <strong>No Trim:</strong> "{{noTrim}}"
+        </p>
+
+        <h4>Trim</h4>
+        <input v-model.trim="trim" type="text" />
+        <p>
+            <strong>Trim:</strong> "{{trim}}"
+        </p>
+    </div>
+
+    <!-- Reference to Vue.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <!-- Script reference for our App -->
+    <script src="./app.js"></script>
+
+</body>
+
+</html>
+
+</body>
+
+</html>
