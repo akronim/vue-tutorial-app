@@ -3,7 +3,6 @@
     <h4 class="bg-primary text-white text-center p-2">
       {{ name }}'s To Do List
     </h4>
-
     <div class="container-fluid p-4">
       <div class="row" v-if="filteredTasks.length == 0">
         <div class="col text-center">
@@ -11,34 +10,30 @@
         </div>
       </div>
       <template v-else>
-        <table class="table table-striped table-bordered table-sm">
-          <thead>
-            <tr>
-              <th>Task</th>
-              <th>Done</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="t in filteredTasks" v-bind:key="t.action">
-              <td>{{ t.action }}</td>
-              <td>
-                <input type="checkbox" v-model="t.done" />
-                {{ t.done }}
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="row">
+          <div class="col font-weight-bold">Task</div>
+          <div class="col-2 font-weight-bold">Done</div>
+        </div>
+        <div class="row" v-for="t in filteredTasks" v-bind:key="t.action">
+          <div class="col">{{ t.action }}</div>
+          <div class="col-2 text-center">
+            <input
+              type="checkbox"
+              v-model="t.done"
+              v-on:click="markComplete(t)"
+              class="form-check-input"
+            />
+          </div>
+        </div>
       </template>
-
-      <div class="form-group m-2">
-        <label>New Item:</label>
-        <input v-model="newItemText" class="form-control" />
-
-        <div class="text-center m-2">
+      <div class="row py-2">
+        <div class="col">
+          <input v-model="newItemText" class="form-control" />
+        </div>
+        <div class="col-2">
           <button class="btn btn-primary" v-on:click="addNewTodo">Add</button>
         </div>
       </div>
-
       <div class="row bg-secondary py-2 mt-2 text-white">
         <div class="col text-center">
           <input
@@ -46,11 +41,10 @@
             v-model="hideCompleted"
             class="form-check-input"
           />
-          <label class="form-check-label font-weight-bold"
-            >Hide completed tasks</label
-          >
+          <label class="form-check-label font-weight-bold">
+            Hide completed tasks
+          </label>
         </div>
-
         <div class="col text-center">
           <button class="btn btn-sm btn-warning" v-on:click="deleteCompleted">
             Delete Completed
@@ -63,22 +57,15 @@
 
 <script>
 export default {
-  name: "App",
+  name: "app",
   data() {
     return {
       name: "Adam",
       tasks: [],
-      // tasks: [
-      //   { action: "Buy Flowers", done: false },
-      //   { action: "Get Shoes", done: false },
-      //   { action: "Collect Tickets", done: true },
-      //   { action: "Call Joe", done: false },
-      // ],
       hideCompleted: true,
       newItemText: "",
     };
   },
-  // used to define properties that operate on the application’s data
   computed: {
     filteredTasks() {
       return this.hideCompleted
@@ -100,6 +87,10 @@ export default {
     },
     deleteCompleted() {
       this.tasks = this.tasks.filter((t) => !t.done);
+      this.storeData();
+    },
+    markComplete(task) {
+      task.done = true;
       this.storeData();
     },
   },
