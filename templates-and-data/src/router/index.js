@@ -36,7 +36,6 @@ export default new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes: [
-    { path: "/", component: null },
     {
       path: "/l1",
       component: L1Display,
@@ -72,7 +71,7 @@ export default new VueRouter({
     },
 
     // catchall route
-    { path: "*", redirect: "/" },
+    { path: "*", redirect: "/l1" },
   ],
 });
 

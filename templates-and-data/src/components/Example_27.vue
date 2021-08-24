@@ -6,53 +6,75 @@
 
 <template>
   <div>
-    <div class="bg-secondary text-white text-center m-2 p-2 h5">
+    <div class="bg-success text-white text-center m-2 p-2 h5">
       {{ message }}
       <!-- Using a prop to configure a child component -->
       <ChildComponent labelText="Name" initialValue="Kayak"></ChildComponent>
       <child-component labelText="Name" initialValue="Kayak"></child-component>
       <MyFeature label-text="Category" initial-value="Watersports"></MyFeature>
-      <my-feature label-text="Category" initial-value="Watersports"></my-feature>
+      <my-feature
+        label-text="Category"
+        initial-value="Watersports"
+      ></my-feature>
     </div>
 
-    <div class="bg-secondary text-white text-center m-2 p-2 h5">
+    <div class="bg-danger text-white text-center m-2 p-2 h5">
       <!-- Using an Expression -->
       <div class="form-group">
         <input class="form-control" v-model="labelText" />
       </div>
       <!-- set up a one-way binding between the child component’s labelText prop 
       and the parent component’s data property-->
-      <my-feature v-bind:label-text="labelText" initial-value="Kayak"></my-feature>
+      <my-feature
+        v-bind:label-text="labelText"
+        initial-value="Kayak"
+      ></my-feature>
     </div>
 
     <!-- Receiving a Custom Event from a Child Component-->
-    <div class="bg-secondary text-white text-center m-2 p-2 h5">
+    <div class="bg-info text-white text-center m-2 p-2 h5">
       <h6>{{ message }}</h6>
       <!-- The v-on is used by a parent to receive events from its child -->
-      <ChildComponent2 v-bind:initial-product="product" v-on:productSubmit="updateProduct"></ChildComponent2>
+      <ChildComponent2
+        v-bind:initial-product="product"
+        v-on:productSubmit="updateProduct"
+      ></ChildComponent2>
     </div>
 
     <!-- Providing Elements for a Slot-->
-    <div class="bg-secondary text-white text-center m-2 p-2 h5">
+    <div class="bg-dark text-white text-center m-2 p-2 h5">
       <h6>{{ message }}</h6>
-      <ChildComponent3 v-bind:initial-product="product" v-on:productSubmit="updateProduct">
+      <ChildComponent3
+        v-bind:initial-product="product"
+        v-on:productSubmit="updateProduct"
+      >
         <!-- content for the slot element in the child component’s template-->
-        <div slot="header" class="bg-warning m-2 p-2 h3 text-dark">[SLOT] Product Editor</div>
-        <div
-          slot="footer"
-          class="bg-warning p-2 h3 text-dark"
-        >[SLOT] Check Details Before Submitting</div>
+        <div slot="header" class="bg-warning m-2 p-2 h3 text-dark">
+          [SLOT] Product Editor
+        </div>
+        <div slot="footer" class="bg-warning p-2 h3 text-dark">
+          [SLOT] Check Details Before Submitting
+        </div>
       </ChildComponent3>
     </div>
 
     <!-- Providing Elements for a Slot 2-->
     <div class="bg-secondary text-white text-center m-2 p-2 h5">
       <product-display v-bind:product="product">
-        <div slot-scope="data_product" class="bg-info text-left">{{data_product.propname}} is {{ data_product.propvalue }}</div>
+        <div slot-scope="data_product" class="bg-info text-left">
+          {{ data_product.propname }} is {{ data_product.propvalue }}
+        </div>
       </product-display>
-      <ChildComponent3 v-bind:initial-product="product" v-on:productSubmit="updateProduct">
-        <div slot="header" class="bg-warning m-2 p-2 h3 text-dark">Product Editor</div>
-        <div slot="footer" class="bg-warning p-2 h3 text-dark">Check Details Before Submitting</div>
+      <ChildComponent3
+        v-bind:initial-product="product"
+        v-on:productSubmit="updateProduct"
+      >
+        <div slot="header" class="bg-warning m-2 p-2 h3 text-dark">
+          Product Editor
+        </div>
+        <div slot="footer" class="bg-warning p-2 h3 text-dark">
+          Check Details Before Submitting
+        </div>
       </ChildComponent3>
     </div>
   </div>
@@ -77,7 +99,7 @@ export default {
     ProductDisplay,
   },
   // a specific pattern must be followed to define data values for a component
-  data: function () {
+  data: function() {
     return {
       // changing the value is automatically reflected throughout the application
       message: "This is the parent component",
@@ -115,9 +137,6 @@ export default {
 };
 </script>
 
-
 <style>
 /* */
 </style>
-
-
