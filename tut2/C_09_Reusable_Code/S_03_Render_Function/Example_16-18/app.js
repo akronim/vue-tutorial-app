@@ -1,26 +1,26 @@
 let tagElement = {
-  render: function(createElement) {
-    return createElement('p', this.$slots.default);
-  }
+  render: function (createElement) {
+    return createElement("p", this.$slots.default);
+  },
 };
 
 let optionsElement = {
   props: {
-    content: String
+    content: String,
   },
-  render: function(createElement) {
+  render: function (createElement) {
     let data = { contentToRender: this.content };
     return createElement({
-      data: function() {
+      data: function () {
         return data;
       },
-      template: '<p>{{contentToRender}}</p>'
+      template: "<p>{{contentToRender}}</p>",
     });
-  }
+  },
 };
 
 var app = new Vue({
-  el: '#app',
+  el: "#app",
   components: { tagElement, optionsElement },
   template: `
       <div>
@@ -30,5 +30,5 @@ var app = new Vue({
         <optionsElement content="Paragraph 2"></optionsElement>
         </div>
       </div>
-      `
+      `,
 });

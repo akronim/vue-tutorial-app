@@ -1,29 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title>Getting to Know Vue.js</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- Div to Mount App -->
     <div id="app"></div>
 
     <!-- Reference to Vue.js library -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
-
-
     <!-- Script Element for our App -->
     <script>
-        var app = new Vue({
-            el: '#app',
-            data: {
-                yes: 'Yes it is!',
-                no: 'No it is not!',
-                falseValue: false
-            },
-            template: `
+      var app = new Vue({
+        el: "#app",
+        data: {
+          yes: "Yes it is!",
+          no: "No it is not!",
+          falseValue: false,
+        },
+        template: `
                 <div>
                     <div>{{ 1 + 1 }}</div>
                     <div>{{ falseValue === false ? yes : no }}</div>
@@ -31,15 +28,8 @@
                     <div>{{ 1 + 1 + 1 > 2 ? yes : no }}</div>
                     <div>{{ 'Getting to Know Vue.js'.toUpperCase() }}</div>
                 </div>
-        `
-        });
+        `,
+      });
     </script>
-
-
-</body>
-
-</html>
-
-</body>
-
+  </body>
 </html>

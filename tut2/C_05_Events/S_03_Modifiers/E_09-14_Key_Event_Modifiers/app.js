@@ -1,19 +1,23 @@
 var app = new Vue({
-    el: '#app',
-    data: {
-        searchText: '',
-        results: []
+  el: "#app",
+  data: {
+    searchText: "",
+    results: [],
+  },
+  methods: {
+    search: function () {
+      axios
+        .get(
+          `https://jsonplaceholder.typicode.com/posts?userId=${parseInt(
+            this.searchText
+          )}`
+        )
+        .then((response) => {
+          this.results = response.data;
+        });
     },
-    methods: {
-        search: function() {
-            axios
-                .get(`https://jsonplaceholder.typicode.com/posts?userId=${parseInt(this.searchText)}`)
-                .then(response => {
-                    this.results = response.data;
-                });
-        }
-    },
-    template: `
+  },
+  template: `
       <div>
       <label>Search:
         <input 
@@ -30,5 +34,5 @@ var app = new Vue({
         </li>
       </ul>
       </div>
-      `
+      `,
 });

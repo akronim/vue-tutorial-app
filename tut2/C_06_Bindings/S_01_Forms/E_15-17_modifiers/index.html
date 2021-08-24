@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title>Getting to Know Vue.js</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- 
 Vue provides us with three modifiers to use with inputs:
 • .lazy: Uses the change event instead of the input event to update the data model.
@@ -15,32 +14,22 @@ Vue provides us with three modifiers to use with inputs:
 
     <!-- Div to Mount App -->
     <div id="app">
-        <h4>Lazy</h4>
-        <input v-model.lazy="lazy" type="text" />
-        <p>
-            <strong>Lazy:</strong> {{lazy}}
-        </p>
+      <h4>Lazy</h4>
+      <input v-model.lazy="lazy" type="text" />
+      <p><strong>Lazy:</strong> {{lazy}}</p>
 
-        <h4>Number</h4>
-        <input v-model.number="number" type="text" />
-        <p>
-            <strong>Number:</strong> {{number}}
-        </p>
-        <p>
-            <strong>Type of Number:</strong> {{typeof number}}
-        </p>
+      <h4>Number</h4>
+      <input v-model.number="number" type="text" />
+      <p><strong>Number:</strong> {{number}}</p>
+      <p><strong>Type of Number:</strong> {{typeof number}}</p>
 
-        <h4>No Trim</h4>
-        <input v-model="noTrim" type="text" />
-        <p>
-            <strong>No Trim:</strong> "{{noTrim}}"
-        </p>
+      <h4>No Trim</h4>
+      <input v-model="noTrim" type="text" />
+      <p><strong>No Trim:</strong> "{{noTrim}}"</p>
 
-        <h4>Trim</h4>
-        <input v-model.trim="trim" type="text" />
-        <p>
-            <strong>Trim:</strong> "{{trim}}"
-        </p>
+      <h4>Trim</h4>
+      <input v-model.trim="trim" type="text" />
+      <p><strong>Trim:</strong> "{{trim}}"</p>
     </div>
 
     <!-- Reference to Vue.js library -->
@@ -48,11 +37,5 @@ Vue provides us with three modifiers to use with inputs:
 
     <!-- Script reference for our App -->
     <script src="./app.js"></script>
-
-</body>
-
-</html>
-
-</body>
-
+  </body>
 </html>

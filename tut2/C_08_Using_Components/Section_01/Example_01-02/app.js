@@ -1,11 +1,11 @@
-Vue.component('OurHeader', {
+Vue.component("OurHeader", {
   template: `
     <h1>App Header</h1>  
-  `
+  `,
 });
 
 var app = new Vue({
-  el: '#app',
+  el: "#app",
   template: `
       <div>
 
@@ -14,5 +14,5 @@ var app = new Vue({
         <OurHeader></OurHeader>
 
       </div>
-      `
+      `,
 });

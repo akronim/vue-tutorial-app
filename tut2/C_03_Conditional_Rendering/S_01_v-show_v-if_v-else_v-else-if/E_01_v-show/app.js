@@ -1,12 +1,12 @@
 var app = new Vue({
-  el: '#app',
+  el: "#app",
   data: {
     yes: true,
     no: false,
     maybe: 0,
-    show: 'yes',
-    dontShow: 'no',
-    yesWord: 'yes'
+    show: "yes",
+    dontShow: "no",
+    yesWord: "yes",
   },
   template: `
     <div>
@@ -32,5 +32,5 @@ var app = new Vue({
             7: <span v-show="0 == 1 + 1">No :(</span>
         </h1>
     </div>
-    `
+    `,
 });

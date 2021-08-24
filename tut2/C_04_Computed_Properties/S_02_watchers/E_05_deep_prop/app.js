@@ -6,23 +6,23 @@ that gets called when the watch is triggered and deep is set to true so we can m
 */
 
 var app = new Vue({
-    el: '#app',
-    data: {
-        book: {
-            title: 'Getting to Know Vue.js',
-            publisher: 'Apress',
-            year: 2018
-        }
+  el: "#app",
+  data: {
+    book: {
+      title: "Getting to Know Vue.js",
+      publisher: "Apress",
+      year: 2018,
     },
-    watch: {
-        book: {
-            handler: function(newBook, oldBook) {
-                console.log('Book Changed');
-            },
-            deep: true
-        }
+  },
+  watch: {
+    book: {
+      handler: function (newBook, oldBook) {
+        console.log("Book Changed");
+      },
+      deep: true,
     },
-    template: `
+  },
+  template: `
     <div>
     <label>Search:
     <input type="text" v-model="book.title" /></label>
@@ -33,5 +33,5 @@ var app = new Vue({
       </li>
     </ul>
     </div>
-    `
+    `,
 });

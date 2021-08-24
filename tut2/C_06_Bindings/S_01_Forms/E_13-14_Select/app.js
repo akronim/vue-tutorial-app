@@ -1,7 +1,7 @@
 var app = new Vue({
-  el: '#app',
+  el: "#app",
   data: {
-    select: '',
-    multiSelect: []
-  }
+    select: "",
+    multiSelect: [],
+  },
 });

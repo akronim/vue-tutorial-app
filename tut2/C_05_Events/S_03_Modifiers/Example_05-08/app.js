@@ -19,13 +19,12 @@ Some of the event modifiers that Vue provides are:
 
 */
 
-
 var app = new Vue({
-    el: '#app',
-    data: {
-        messages: []
-    },
-    template: `
+  el: "#app",
+  data: {
+    messages: [],
+  },
+  template: `
     <div>
         <div v-on:click="messages.push('Outer')">
             <h4>Outer : v-on:click="messages.push('Outer')"</h4>
@@ -52,5 +51,5 @@ var app = new Vue({
             </p>
         <input type="button" v-on:click="messages = []" value="Clear" />
     </div>
-    `
+    `,
 });

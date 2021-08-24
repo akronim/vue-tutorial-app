@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title>Getting to Know Vue.js</title>
     <style>
-        .error {
-            color: red;
-            border: red 3px solid;
-        }
-        
-        .no-error {
-            color: green;
-            border: green 3px solid;
-        }
-    </style>
-</head>
+      .error {
+        color: red;
+        border: red 3px solid;
+      }
 
-<body>
+      .no-error {
+        color: green;
+        border: green 3px solid;
+      }
+    </style>
+  </head>
+
+  <body>
     <!-- Div to Mount App -->
     <div id="app">
-
-        <!-- We can also use the object syntax to bind multiple CSS classes to an element 
+      <!-- We can also use the object syntax to bind multiple CSS classes to an element 
             by adding two or more properties with evaluation conditions of when to apply them. -->
-        <div>
-            <h4>Two Classes Bound</h4>
-            <input type="text" v-model="input" v-bind:class="{ error : inputError, 'no-error' : inputError == false }" />
-        </div>
+      <div>
+        <h4>Two Classes Bound</h4>
+        <input
+          type="text"
+          v-model="input"
+          v-bind:class="{ error : inputError, 'no-error' : inputError == false }"
+        />
+      </div>
     </div>
 
     <!-- Reference to Vue.js library -->
@@ -33,11 +35,5 @@
 
     <!-- Script reference for our App -->
     <script src="./app.js"></script>
-
-</body>
-
-</html>
-
-</body>
-
+  </body>
 </html>

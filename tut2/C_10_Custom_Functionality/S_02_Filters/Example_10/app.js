@@ -1,21 +1,21 @@
 var app = new Vue({
-  el: '#app',
+  el: "#app",
   data: {
-    title: 'Getting to Know Vue.js'
+    title: "Getting to Know Vue.js",
   },
   filters: {
-    skipLetters: function(value, place) {
+    skipLetters: function (value, place) {
       if (!value) {
-        return '';
+        return "";
       }
       let text = value.toString();
       return text
-        .split('')
+        .split("")
         .filter((letter, index) => {
           return (index + 1) % place !== 0;
         })
-        .join('');
-    }
+        .join("");
+    },
   },
   template: `
   <div>
@@ -32,5 +32,5 @@ var app = new Vue({
                               skipLetters(3)" />
     </label>
   </div>
-      `
+      `,
 });

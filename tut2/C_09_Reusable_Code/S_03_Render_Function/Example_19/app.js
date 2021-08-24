@@ -1,33 +1,33 @@
 let dataElement = {
   methods: {
-    handleClick: function() {
-      console.log('data element clicked');
-    }
+    handleClick: function () {
+      console.log("data element clicked");
+    },
   },
-  render: function(createElement) {
-    return createElement('p', {
+  render: function (createElement) {
+    return createElement("p", {
       class: {
-        ourClass: true
+        ourClass: true,
       },
       style: {
-        color: '#34495E',
-        backgroundColor: '#41B883'
+        color: "#34495E",
+        backgroundColor: "#41B883",
       },
       attrs: {
-        'data-secret': "shh don't tell"
+        "data-secret": "shh don't tell",
       },
       domProps: {
-        innerText: 'Getting To Know Vue.js'
+        innerText: "Getting To Know Vue.js",
       },
       on: {
-        click: this.handleClick
-      }
+        click: this.handleClick,
+      },
     });
-  }
+  },
 };
 
 var app = new Vue({
-  el: '#app',
+  el: "#app",
   components: { dataElement },
   template: `
       <div>
@@ -35,5 +35,5 @@ var app = new Vue({
           <dataElement></dataElement>
         </div>
       </div>
-      `
+      `,
 });

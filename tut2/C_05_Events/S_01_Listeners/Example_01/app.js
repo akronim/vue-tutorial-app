@@ -5,11 +5,11 @@ where eventName is the name of the event you are interested in and handleEvent i
 */
 
 var app = new Vue({
-    el: '#app',
-    data: {
-        show: true
-    },
-    template: `
+  el: "#app",
+  data: {
+    show: true,
+  },
+  template: `
     <div>
         <h1 v-on:click="show = !show">
             Toggle
@@ -18,5 +18,5 @@ var app = new Vue({
             Hide and show this message by clicking the word "Toggle"
         </p>
     </div>
-    `
+    `,
 });

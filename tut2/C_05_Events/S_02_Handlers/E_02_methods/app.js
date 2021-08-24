@@ -1,12 +1,12 @@
 var app = new Vue({
-  el: '#app',
+  el: "#app",
   data: {
-    show: true
+    show: true,
   },
   methods: {
-    toggle: function() {
+    toggle: function () {
       this.show = !this.show;
-    }
+    },
   },
   template: `
     <div>
@@ -17,5 +17,5 @@ var app = new Vue({
             Hide and show this message by clicking the word "Toggle"
         </p>
     </div>
-    `
+    `,
 });

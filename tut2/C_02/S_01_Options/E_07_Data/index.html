@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title>Getting to Know Vue.js</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- Div to Mount App -->
     <div id="app">
-        <p>emptyObject: {{ emptyObject }}</p>
-        <p>emptyString: {{ emptyString }}</p>
-        <p>nullProperty: {{ nullProperty }}</p>
+      <p>emptyObject: {{ emptyObject }}</p>
+      <p>emptyString: {{ emptyString }}</p>
+      <p>nullProperty: {{ nullProperty }}</p>
     </div>
 
     <!-- Reference to Vue.js library -->
@@ -18,18 +17,15 @@
 
     <!-- Script Element for our App -->
     <script>
-        var app = new Vue({
-            el: '#app',
-            data: {
-                // Don’t use the empty object {}, as that will render the stringified JSON of the empty object
-                emptyObject: {},
-                emptyString: '',
-                nullProperty: null
-            }
-        });
+      var app = new Vue({
+        el: "#app",
+        data: {
+          // Don’t use the empty object {}, as that will render the stringified JSON of the empty object
+          emptyObject: {},
+          emptyString: "",
+          nullProperty: null,
+        },
+      });
     </script>
-
-
-</body>
-
+  </body>
 </html>

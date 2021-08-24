@@ -1,20 +1,20 @@
 var app = new Vue({
-  el: '#app',
+  el: "#app",
   data: {
-    input: '',
+    input: "",
     inputError: null,
-    activeClass: 'active',
-    errorClass: 'error'
+    activeClass: "active",
+    errorClass: "error",
   },
   watch: {
-    input: function() {
+    input: function () {
       var results = parseInt(this.input);
       if (isNaN(results)) {
         this.inputError = true;
       } else {
         this.inputError = false;
       }
-    }
+    },
   },
   template: `
   <div>
@@ -28,5 +28,5 @@ var app = new Vue({
         v-model="input" 
         v-bind:class="[{ 'error' : inputError }, activeClass]" />
   </div>
-  `
+  `,
 });

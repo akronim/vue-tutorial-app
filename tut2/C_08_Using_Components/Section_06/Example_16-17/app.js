@@ -2,21 +2,21 @@ var AppHeader = {
   props: {
     text: {
       type: String,
-      default: 'App Header'
-    }
+      default: "App Header",
+    },
   },
   template: `
     <h1>{{text}}</h1>  
-  `
+  `,
 };
 
 var app = new Vue({
-  el: '#app',
+  el: "#app",
   components: {
-    AppHeader: AppHeader
+    AppHeader: AppHeader,
   },
   data: {
-    appLabel: 'Ship Search'
+    appLabel: "Ship Search",
   },
   template: `
       <div>
@@ -24,5 +24,5 @@ var app = new Vue({
         <AppHeader />
 
       </div>
-    `
+    `,
 });

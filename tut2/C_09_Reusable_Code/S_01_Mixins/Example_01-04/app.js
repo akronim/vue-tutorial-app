@@ -1,57 +1,57 @@
 var baseMixin = {
-  data: function() {
-    return { text: 'default' };
+  data: function () {
+    return { text: "default" };
   },
   watch: {
-    text: function(newtext, oldtext) {
+    text: function (newtext, oldtext) {
       this.log(newtext, oldtext);
-    }
+    },
   },
-  created: function() {
+  created: function () {
     this.log(`My text when Created: ${this.text}`);
   },
-  beforeMount: function() {
+  beforeMount: function () {
     this.log(`My text beforeMount: ${this.text}`);
   },
-  mounted: function() {
+  mounted: function () {
     this.log(`My text when mounted: ${this.text}`);
   },
-  beforeUpdate: function() {
+  beforeUpdate: function () {
     this.log(`My text beforeUpdate: ${this.text}`);
   },
-  updated: function() {
+  updated: function () {
     this.log(`My text when updated: ${this.text}`);
   },
-  beforeDestroy: function() {
+  beforeDestroy: function () {
     this.log(`My text beforeDestroy: ${this.text}`);
   },
-  destroyed: function() {
+  destroyed: function () {
     this.log(`My text when destroyed: ${this.text}`);
   },
   methods: {
-    log: function(...params) {
+    log: function (...params) {
       console.log(...params);
-    }
+    },
   },
   template: `
   <div>
     <h1>{{text}}</h1> 
   </div>
-  `
+  `,
 };
 
 var secondBaseMixin = {
-  data: function() {
-    return { text: 'default from secondBaseMixin' };
-  }
+  data: function () {
+    return { text: "default from secondBaseMixin" };
+  },
 };
 
 var componentOne = {
-  mixins: [baseMixin]
+  mixins: [baseMixin],
 };
 
 var componentTwo = {
-  mixins: [baseMixin, secondBaseMixin]
+  mixins: [baseMixin, secondBaseMixin],
 };
 
 var componentThree = {
@@ -60,40 +60,44 @@ var componentThree = {
     <div>
       <h3>From Component Two: {{text}}</h3>
     </div>
-  `
+  `,
 };
 
 var componentFour = {
   mixins: [baseMixin],
-  data: function() {
+  data: function () {
     return {
-      text: 'Not from the Mixin',
-      textTwo: 'Component Three text'
+      text: "Not from the Mixin",
+      textTwo: "Component Three text",
     };
   },
   methods: {
-    click: function($event) {
+    click: function ($event) {
       this.log($event.target);
-    }
+    },
   },
   template: `
     <div v-on:click="click">
       <h3>From Component Three: {{text}}</h3>
       <h4>New textTwo: {{textTwo}}</h4>
     </div>
-  `
+  `,
 };
 
 var app = new Vue({
-  el: '#app',
+  el: "#app",
   components: {
     componentOne,
     componentTwo,
-    componentThree
+    componentThree,
+    componentFour,
   },
   template: `
       <div>
+        <component-one />
         <component-two />
+        <component-three />
+        <component-four />
       </div>
-      `
+      `,
 });

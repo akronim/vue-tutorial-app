@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title>Getting to Know Vue.js</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- Div to Mount App -->
     <div id="app">
-        <div>
-            <h4>Dynamic Font Size with an object</h4>
-            <input type="number" v-model.number="fontSize" />
-            <p v-bind:style="{fontSize: fontSize + 'px'}">
-                Getting to Know Vue.js
-            </p>
-        </div>
+      <div>
+        <h4>Dynamic Font Size with an object</h4>
+        <input type="number" v-model.number="fontSize" />
+        <p v-bind:style="{fontSize: fontSize + 'px'}">Getting to Know Vue.js</p>
+      </div>
     </div>
 
     <!-- Reference to Vue.js library -->
@@ -22,11 +19,5 @@
 
     <!-- Script reference for our App -->
     <script src="./app.js"></script>
-
-</body>
-
-</html>
-
-</body>
-
+  </body>
 </html>

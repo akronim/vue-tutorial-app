@@ -2,7 +2,7 @@ let templateSample = {
   props: {
     content: String,
     element: String,
-    background: String
+    background: String,
   },
   template: `
   <span>
@@ -19,11 +19,11 @@ let templateSample = {
         {{this.content}}
     </p>
   </span>
-  `
+  `,
 };
 
 let renderSample = {
-  render: function(createElement) {
+  render: function (createElement) {
     return createElement(
       this.element,
       { style: { backgroundColor: this.background } },
@@ -33,12 +33,12 @@ let renderSample = {
   props: {
     content: String,
     element: String,
-    background: String
-  }
+    background: String,
+  },
 };
 
 var app = new Vue({
-  el: '#app',
+  el: "#app",
   components: { renderSample, templateSample },
   template: `
       <div>
@@ -80,5 +80,5 @@ var app = new Vue({
         />
         </div>
       </div>
-      `
+      `,
 });

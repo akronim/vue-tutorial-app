@@ -1,130 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title>Getting to Know Vue.js</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- Div to Mount App -->
     <div id="app">
-        <h1>Inputs</h1>
+      <h1>Inputs</h1>
 
-        <!-- To bind our data to the text input, we add v-model="inputs.text" as an attribute.  -->
-        <h4>Text</h4>
-        <input type="text" v-model="inputs.text" />
-        <p>
-            <strong>Text:</strong> {{inputs.text}}
-        </p>
+      <!-- To bind our data to the text input, we add v-model="inputs.text" as an attribute.  -->
+      <h4>Text</h4>
+      <input type="text" v-model="inputs.text" />
+      <p><strong>Text:</strong> {{inputs.text}}</p>
 
-        <!-- It doesn’t convert the value of our input to a number, so the data model will contain a string. -->
-        <h4>Number as String</h4>
-        <input type="number" v-model="inputs.numberAsString" />
-        <p>
-            <strong>Number:</strong> {{inputs.numberAsString}}
-        </p>
-        <p>
-            <strong>Typeof numberAsString:</strong> {{typeof inputs.numberAsString}}
-        </p>
+      <!-- It doesn’t convert the value of our input to a number, so the data model will contain a string. -->
+      <h4>Number as String</h4>
+      <input type="number" v-model="inputs.numberAsString" />
+      <p><strong>Number:</strong> {{inputs.numberAsString}}</p>
+      <p>
+        <strong>Typeof numberAsString:</strong> {{typeof inputs.numberAsString}}
+      </p>
 
-        <!-- We can convert the number in a method or we can use the .number modifier. -->
-        <h4>Number as Number</h4>
-        <input type="number" v-model.number="inputs.numberAsNumber" />
-        <p>
-            <strong>Number:</strong> {{inputs.numberAsNumber}}
-        </p>
-        <p>
-            <strong>Typeof numberAsNumber:</strong> {{typeof inputs.numberAsNumber}}
-        </p>
+      <!-- We can convert the number in a method or we can use the .number modifier. -->
+      <h4>Number as Number</h4>
+      <input type="number" v-model.number="inputs.numberAsNumber" />
+      <p><strong>Number:</strong> {{inputs.numberAsNumber}}</p>
+      <p>
+        <strong>Typeof numberAsNumber:</strong> {{typeof inputs.numberAsNumber}}
+      </p>
 
-        <!-- v-model="inputs.date" -->
-        <h4>Date</h4>
-        <input type="date" v-model="inputs.date" />
-        <p>
-            <strong>Date:</strong> {{inputs.date}}
-        </p>
+      <!-- v-model="inputs.date" -->
+      <h4>Date</h4>
+      <input type="date" v-model="inputs.date" />
+      <p><strong>Date:</strong> {{inputs.date}}</p>
 
-        <!-- Passwords bind the same as a text <input/> does. -->
-        <h4>Password</h4>
-        <input type="password" v-model="inputs.password" />
-        <p>
-            <strong>Password:</strong> {{inputs.password}}
-        </p>
+      <!-- Passwords bind the same as a text <input/> does. -->
+      <h4>Password</h4>
+      <input type="password" v-model="inputs.password" />
+      <p><strong>Password:</strong> {{inputs.password}}</p>
 
-        <!--  -->
-        <h4>Checkbox</h4>
-        <input type="checkbox" v-model="inputs.checkbox" value="myCheckBox" id="myCheckBox" />
-        <label for="myCheckBox">My Check Box</label>
-        <p>
-            <strong>Checkbox:</strong> {{inputs.checkbox}}
-        </p>
+      <!--  -->
+      <h4>Checkbox</h4>
+      <input
+        type="checkbox"
+        v-model="inputs.checkbox"
+        value="myCheckBox"
+        id="myCheckBox"
+      />
+      <label for="myCheckBox">My Check Box</label>
+      <p><strong>Checkbox:</strong> {{inputs.checkbox}}</p>
 
-        <!-- With Vue we can bind more than one check box to the same data property. 
+      <!-- With Vue we can bind more than one check box to the same data property. 
             If we have the data property as an array, Vue will push the value of the check box onto the array 
             as it is selected. -->
-        <h4>Checkboxes</h4>
-        <input v-model="inputs.checkboxes" type="checkbox" value="eeny" id="eeny" />
-        <label for="eeny">Enny</label>
-        <input v-model="inputs.checkboxes" type="checkbox" value="meeny" id="meeny" />
-        <label for="meeny">Meenny</label>
-        <input v-model="inputs.checkboxes" type="checkbox" value="miny" id="miny" />
-        <label for="miny">Miny</label>
-        <input v-model="inputs.checkboxes" type="checkbox" value="mo" id="mo" />
-        <label for="mo">Mo</label>
-        <p>
-            <strong>Checkboxes:</strong> {{inputs.checkboxes}}
-        </p>
+      <h4>Checkboxes</h4>
+      <input
+        v-model="inputs.checkboxes"
+        type="checkbox"
+        value="eeny"
+        id="eeny"
+      />
+      <label for="eeny">Enny</label>
+      <input
+        v-model="inputs.checkboxes"
+        type="checkbox"
+        value="meeny"
+        id="meeny"
+      />
+      <label for="meeny">Meenny</label>
+      <input
+        v-model="inputs.checkboxes"
+        type="checkbox"
+        value="miny"
+        id="miny"
+      />
+      <label for="miny">Miny</label>
+      <input v-model="inputs.checkboxes" type="checkbox" value="mo" id="mo" />
+      <label for="mo">Mo</label>
+      <p><strong>Checkboxes:</strong> {{inputs.checkboxes}}</p>
 
-        <!-- Each radio button will be bound via the v-model to the same backing data property 
+      <!-- Each radio button will be bound via the v-model to the same backing data property 
             using v-model="inputs.radios" as the binding attribute. -->
-        <h4>Radios</h4>
-        <input v-model="inputs.radios" type="radio" value="rollout" id="rollout" />
-        <label for="rollout">Autobots, transform and roll out!</label>
-        <br>
-        <input v-model="inputs.radios" type="radio" value="decepticons-retreat" id="retreat" />
-        <label for="retreat">Decepticons, retreat!</label>
-        <br>
-        <input v-model="inputs.radios" type="radio" value="go-joe" id="go-joe" />
-        <label for="go-joe">Go Joe!</label>
-        <br>
-        <input v-model="inputs.radios" type="radio" value="cobra-retreat" id="cobraretreat" />
-        <label for="cobraretreat">Cobra retreat. RETREAT!</label>
-        <p>
-            <strong>Radios:</strong> {{inputs.radios}}
-        </p>
+      <h4>Radios</h4>
+      <input
+        v-model="inputs.radios"
+        type="radio"
+        value="rollout"
+        id="rollout"
+      />
+      <label for="rollout">Autobots, transform and roll out!</label>
+      <br />
+      <input
+        v-model="inputs.radios"
+        type="radio"
+        value="decepticons-retreat"
+        id="retreat"
+      />
+      <label for="retreat">Decepticons, retreat!</label>
+      <br />
+      <input v-model="inputs.radios" type="radio" value="go-joe" id="go-joe" />
+      <label for="go-joe">Go Joe!</label>
+      <br />
+      <input
+        v-model="inputs.radios"
+        type="radio"
+        value="cobra-retreat"
+        id="cobraretreat"
+      />
+      <label for="cobraretreat">Cobra retreat. RETREAT!</label>
+      <p><strong>Radios:</strong> {{inputs.radios}}</p>
 
-        <!-- We can also set a preset value for the user by setting the value of the backing property to 
+      <!-- We can also set a preset value for the user by setting the value of the backing property to 
             the same value as one of the radio buttons.  -->
-        <h4>Radios Preset</h4>
-        <input v-model="inputs.radiosPreset" type="radio" value="rollout" id="rollout" />
-        <label for="rollout">Autobots, transform and roll out!</label>
-        <br>
-        <input v-model="inputs.radiosPreset" type="radio" value="decepticons-retreat" id="retreat" />
-        <label for="retreat">Decepticons, retreat!</label>
-        <br>
-        <input v-model="inputs.radiosPreset" type="radio" value="go-joe" id="go-joe" />
-        <label for="go-joe">Go Joe!</label>
-        <br>
-        <input v-model="inputs.radiosPreset" type="radio" value="cobra-retreat" id="cobraretreat" />
-        <label for="cobraretreat">Cobra retreat. RETREAT!</label>
-        <p>
-            <strong>Radios:</strong> {{inputs.radiosPreset}}
-        </p>
+      <h4>Radios Preset</h4>
+      <input
+        v-model="inputs.radiosPreset"
+        type="radio"
+        value="rollout"
+        id="rollout"
+      />
+      <label for="rollout">Autobots, transform and roll out!</label>
+      <br />
+      <input
+        v-model="inputs.radiosPreset"
+        type="radio"
+        value="decepticons-retreat"
+        id="retreat"
+      />
+      <label for="retreat">Decepticons, retreat!</label>
+      <br />
+      <input
+        v-model="inputs.radiosPreset"
+        type="radio"
+        value="go-joe"
+        id="go-joe"
+      />
+      <label for="go-joe">Go Joe!</label>
+      <br />
+      <input
+        v-model="inputs.radiosPreset"
+        type="radio"
+        value="cobra-retreat"
+        id="cobraretreat"
+      />
+      <label for="cobraretreat">Cobra retreat. RETREAT!</label>
+      <p><strong>Radios:</strong> {{inputs.radiosPreset}}</p>
 
-        <!-- Creating radio buttons from a list of options may be required as the options could come from the server. -->
-        <h4>Radios Dynamic Options</h4>
-        <template v-for="(option, index) in inputs.radiosDynamicOptions">
+      <!-- Creating radio buttons from a list of options may be required as the options could come from the server. -->
+      <h4>Radios Dynamic Options</h4>
+      <template v-for="(option, index) in inputs.radiosDynamicOptions">
+        <input
+          v-model="inputs.radiosDynamic"
+          type="radio"
+          v-bind:value="option.value"
+          v-bind:id="option.value"
+        />
+        <label v-bind:for="option.value">{{option.label}}</label>
+        <br v-if="index < inputs.radiosDynamicOptions.length" />
+      </template>
 
-            <input v-model="inputs.radiosDynamic" type="radio" v-bind:value="option.value" v-bind:id="option.value" />
-            <label v-bind:for="option.value">{{option.label}}</label>
-            <br v-if="index < inputs.radiosDynamicOptions.length">
-
-        </template>
-
-        <p>
-            <strong>Radios:</strong> {{inputs.radiosDynamic}}
-        </p>
-
+      <p><strong>Radios:</strong> {{inputs.radiosDynamic}}</p>
     </div>
 
     <!-- Reference to Vue.js library -->
@@ -132,11 +168,5 @@
 
     <!-- Script reference for our App -->
     <script src="./app.js"></script>
-
-</body>
-
-</html>
-
-</body>
-
+  </body>
 </html>

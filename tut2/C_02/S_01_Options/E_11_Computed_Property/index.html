@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title>Getting to Know Vue.js</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- Div to Mount App -->
     <div id="app"></div>
 
@@ -18,25 +17,18 @@
 
     <!-- Script Element for our App -->
     <script>
-        var app = new Vue({
-            el: '#app',
-            data: {
-                text: 'Getting to Know Vue.js'
-            },
-            template: `<div>{{ capitalizedText }}</div>`,
-            computed: {
-                capitalizedText: function () {
-                    return this.text.toUpperCase();
-                }
-            }
-        });
+      var app = new Vue({
+        el: "#app",
+        data: {
+          text: "Getting to Know Vue.js",
+        },
+        template: `<div>{{ capitalizedText }}</div>`,
+        computed: {
+          capitalizedText: function () {
+            return this.text.toUpperCase();
+          },
+        },
+      });
     </script>
-
-
-</body>
-
-</html>
-
-</body>
-
+  </body>
 </html>

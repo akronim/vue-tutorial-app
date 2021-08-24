@@ -1,38 +1,38 @@
 var app = new Vue({
-  el: '#app',
+  el: "#app",
   data: {
     books: [
       {
-        title: 'Entertaining Kids Book',
+        title: "Entertaining Kids Book",
         price: 4.99,
         id: 0,
-        genres: ['kids', 'fiction']
+        genres: ["kids", "fiction"],
       },
       {
-        title: 'Teen Drama',
+        title: "Teen Drama",
         price: 5.99,
         id: 1,
-        genres: ['teen', 'fiction']
+        genres: ["teen", "fiction"],
       },
       {
-        title: 'Boring Facts',
+        title: "Boring Facts",
         price: 6.99,
         id: 2,
-        genres: ['adult', 'non-fiction']
+        genres: ["adult", "non-fiction"],
       },
       {
-        title: 'Overly Complex Story',
+        title: "Overly Complex Story",
         price: 7.99,
         id: 3,
-        genres: ['adult', 'fiction']
+        genres: ["adult", "fiction"],
       },
       {
-        title: 'Facts for Teens',
+        title: "Facts for Teens",
         price: 3.99,
         id: 4,
-        genres: ['teen', 'non-fiction']
-      }
-    ]
+        genres: ["teen", "non-fiction"],
+      },
+    ],
   },
   template: `
     <ul>
@@ -40,5 +40,5 @@ var app = new Vue({
         {{ book }}
       </li>
     </ul>
-    `
+    `,
 });

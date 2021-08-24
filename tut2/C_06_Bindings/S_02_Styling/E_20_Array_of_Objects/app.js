@@ -1,16 +1,16 @@
 var app = new Vue({
-    el: '#app',
-    data: {
-        fontSize: 0,
-        fontSizeObject: { fontSize: '0px' },
-        fontColorObject: { color: 'red' }
+  el: "#app",
+  data: {
+    fontSize: 0,
+    fontSizeObject: { fontSize: "0px" },
+    fontColorObject: { color: "red" },
+  },
+  watch: {
+    fontSize: function () {
+      this.fontSizeObject.fontSize = this.fontSize + "px";
     },
-    watch: {
-        fontSize: function() {
-            this.fontSizeObject.fontSize = this.fontSize + 'px';
-        }
-    },
-    template: `
+  },
+  template: `
   <div>
     <h4>Dynamic Font Size with an object</h4>
     <input type="number" v-model.number="fontSize" />
@@ -18,5 +18,5 @@ var app = new Vue({
         Getting to Know Vue.js
     </p>
   </div>  
-  `
+  `,
 });

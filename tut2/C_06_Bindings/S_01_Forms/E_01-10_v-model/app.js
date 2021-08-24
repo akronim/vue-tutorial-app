@@ -7,33 +7,33 @@ attributes of the elements.
 The data model created when the Vue instance is initialized is the ultimate source of truth for Vue.
 */
 
-
 var app = new Vue({
-    el: '#app',
-    data: {
-        inputs: {
-            text: '',
-            numberAsString: 0,
-            numberAsNumber: 0,
-            date: '',
-            password: '',
-            checkbox: false,
-            checkboxes: [],
-            radios: '',
-            radiosPreset: 'rollout',
-            radiosDynamic: '',
-            radiosDynamicOptions: [{
-                    label: 'Blue',
-                    value: 'Light'
-                },
-                {
-                    label: 'Red',
-                    value: 'Dark'
-                }
-            ],
-            file: '',
-            select: '',
-            multiselect: []
-        }
-    }
+  el: "#app",
+  data: {
+    inputs: {
+      text: "",
+      numberAsString: 0,
+      numberAsNumber: 0,
+      date: "",
+      password: "",
+      checkbox: false,
+      checkboxes: [],
+      radios: "",
+      radiosPreset: "rollout",
+      radiosDynamic: "",
+      radiosDynamicOptions: [
+        {
+          label: "Blue",
+          value: "Light",
+        },
+        {
+          label: "Red",
+          value: "Dark",
+        },
+      ],
+      file: "",
+      select: "",
+      multiselect: [],
+    },
+  },
 });

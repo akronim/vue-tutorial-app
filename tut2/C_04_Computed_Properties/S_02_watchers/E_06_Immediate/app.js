@@ -5,23 +5,23 @@ This way, you can be sure it fires at least once.
 */
 
 var app = new Vue({
-    el: '#app',
-    data: {
-        book: {
-            title: 'Getting to Know Vue.js',
-            publisher: 'Apress',
-            year: 2018
-        }
+  el: "#app",
+  data: {
+    book: {
+      title: "Getting to Know Vue.js",
+      publisher: "Apress",
+      year: 2018,
     },
-    watch: {
-        book: {
-            handler: function(newBook, oldBook) {
-                console.log('Book Changed');
-            },
-            immediate: true
-        }
+  },
+  watch: {
+    book: {
+      handler: function (newBook, oldBook) {
+        console.log("Book Changed");
+      },
+      immediate: true,
     },
-    template: `
+  },
+  template: `
     <div>    
       <ul>
         <li v-for="(value, prop) in book">
@@ -29,5 +29,5 @@ var app = new Vue({
         </li>
       </ul>
     </div>
-    `
+    `,
 });

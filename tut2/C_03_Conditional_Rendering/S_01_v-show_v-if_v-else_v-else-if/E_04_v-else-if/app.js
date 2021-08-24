@@ -1,8 +1,8 @@
 var app = new Vue({
-  el: '#app',
+  el: "#app",
   data: {
     yes: true,
-    no: false
+    no: false,
   },
   template: `
     <div>
@@ -19,5 +19,5 @@ var app = new Vue({
         <h2 v-else>Else</h2>
       </div>
     </div>
-    `
+    `,
 });

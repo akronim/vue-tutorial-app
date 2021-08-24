@@ -1,27 +1,24 @@
-Vue.filter('reverse', function(value) {
+Vue.filter("reverse", function (value) {
   if (!value) {
-    return '';
+    return "";
   }
   let text = value.toString();
-  return text
-    .split('')
-    .reverse()
-    .join('');
+  return text.split("").reverse().join("");
 });
 
 var app = new Vue({
-  el: '#app',
+  el: "#app",
   data: {
-    title: 'Getting to Know Vue.js'
+    title: "Getting to Know Vue.js",
   },
   filters: {
-    lowercase: function(value) {
+    lowercase: function (value) {
       if (!value) {
-        return '';
+        return "";
       }
       let text = value.toString();
       return text.toLowerCase();
-    }
+    },
   },
   template: `
   <div>
@@ -35,5 +32,5 @@ var app = new Vue({
                             lowercase | 
                             reverse" />
   </div>
-      `
+      `,
 });

@@ -1,14 +1,14 @@
-Vue.directive('floatRight', {
-  inserted: function(el, binding) {
-    el.style.float = 'right';
+Vue.directive("floatRight", {
+  inserted: function (el, binding) {
+    el.style.float = "right";
     if (binding.value) {
       el.style.marginRight = `${binding.value}px`;
     }
-  }
+  },
 });
 
 var app = new Vue({
-  el: '#app',
+  el: "#app",
   template: `
       <div>
         <h1>Floating Directive</h1>
@@ -16,5 +16,5 @@ var app = new Vue({
           Floated Right
         </span>
       </div>
-      `
+      `,
 });

@@ -4,26 +4,30 @@ a computed property, a watch can help you decouple your user input from more exp
 */
 
 var app = new Vue({
-    el: '#app',
-    data: {
-        searchText: '',
-        results: []
+  el: "#app",
+  data: {
+    searchText: "",
+    results: [],
+  },
+  methods: {
+    search: function () {
+      axios
+        .get(
+          `https://jsonplaceholder.typicode.com/posts?userId=${parseInt(
+            this.searchText
+          )}`
+        )
+        .then((response) => {
+          this.results = response.data;
+        });
     },
-    methods: {
-        search: function() {
-            axios
-                .get(`https://jsonplaceholder.typicode.com/posts?userId=${parseInt(this.searchText)}`)
-                .then(response => {
-                    this.results = response.data;
-                });
-        }
+  },
+  watch: {
+    searchText: function (newSearchText, oldSearchText) {
+      this.search();
     },
-    watch: {
-        searchText: function(newSearchText, oldSearchText) {
-            this.search();
-        }
-    },
-    template: `
+  },
+  template: `
     <div>
     <label>Search:
     <input type="text" v-model="searchText" /></label>
@@ -36,5 +40,5 @@ var app = new Vue({
       </li>
     </ul>
     </div>
-    `
+    `,
 });

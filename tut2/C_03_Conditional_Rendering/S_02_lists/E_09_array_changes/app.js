@@ -17,56 +17,56 @@ not detect that. The methods that do not change the original array are filter, c
 To get Vue to observe these changes to the array, replace the original array with the results.
 */
 
-
 var app = new Vue({
-    el: '#app',
-    data: {
-        items: ['first', 'two', '3'],
-        books: [{
-                title: 'Entertaining Kids Book',
-                price: 4.99,
-                id: 0,
-                genres: ['kids', 'fiction']
-            },
-            {
-                title: 'Teen Drama',
-                price: 5.99,
-                id: 1,
-                genres: ['teen', 'fiction']
-            },
-            {
-                title: 'Boring Facts',
-                price: 6.99,
-                id: 2,
-                genres: ['adult', 'non-fiction']
-            },
-            {
-                title: 'Overly Complex Story',
-                price: 7.99,
-                id: 3,
-                genres: ['adult', 'science fiction', 'fiction']
-            },
-            {
-                title: 'Facts for Teens',
-                price: 3.99,
-                id: 4,
-                genres: ['teen', 'non-fiction']
-            }
-        ]
+  el: "#app",
+  data: {
+    items: ["first", "two", "3"],
+    books: [
+      {
+        title: "Entertaining Kids Book",
+        price: 4.99,
+        id: 0,
+        genres: ["kids", "fiction"],
+      },
+      {
+        title: "Teen Drama",
+        price: 5.99,
+        id: 1,
+        genres: ["teen", "fiction"],
+      },
+      {
+        title: "Boring Facts",
+        price: 6.99,
+        id: 2,
+        genres: ["adult", "non-fiction"],
+      },
+      {
+        title: "Overly Complex Story",
+        price: 7.99,
+        id: 3,
+        genres: ["adult", "science fiction", "fiction"],
+      },
+      {
+        title: "Facts for Teens",
+        price: 3.99,
+        id: 4,
+        genres: ["teen", "non-fiction"],
+      },
+    ],
+  },
+  methods: {
+    // Replacing the Original Array with Results of the Array Method That Returns a New Array
+    teenFilter: function () {
+      this.books = this.books.filter((book) => {
+        return (
+          book.genres.findIndex((genre) => {
+            return genre === "teen";
+          }) >= 0
+        );
+      });
     },
-    methods: {
-        // Replacing the Original Array with Results of the Array Method That Returns a New Array
-        teenFilter: function() {
-            this.books = this.books.filter(book => {
-                return (
-                    book.genres.findIndex(genre => {
-                        return genre === 'teen';
-                    }) >= 0
-                );
-            });
-        }
-    },
-    template: `
+  },
+  template: `
     <ul>
     <li v-for="book in books" :key="book.id">
       <p><strong>Id:</strong> {{ book.id }}<p>
@@ -78,5 +78,5 @@ var app = new Vue({
       </p>
     </li>
     </ul>
-    `
+    `,
 });

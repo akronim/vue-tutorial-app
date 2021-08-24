@@ -1,20 +1,20 @@
 let listElement = {
   props: {
-    listItems: Array
+    listItems: Array,
   },
-  render: function(createElement) {
+  render: function (createElement) {
     return createElement(
-      'ul',
+      "ul",
       null,
-      this.listItems.map(item => createElement('li', item))
+      this.listItems.map((item) => createElement("li", item))
     );
-  }
+  },
 };
 
 var app = new Vue({
-  el: '#app',
+  el: "#app",
   data: {
-    items: [1, 'Two', 'C']
+    items: [1, "Two", "C"],
   },
   components: { listElement },
   template: `
@@ -23,5 +23,5 @@ var app = new Vue({
         <listElement v-bind:listItems="items"></listElement>
         </div>
       </div>
-      `
+      `,
 });

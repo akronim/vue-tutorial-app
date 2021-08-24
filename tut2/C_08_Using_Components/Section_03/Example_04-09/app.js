@@ -1,40 +1,40 @@
-Vue.component('OurThirdHeader', {
-  props: ['text'],
+Vue.component("OurThirdHeader", {
+  props: ["text"],
   template: `
     <h1>{{text}}</h1>  
-  `
+  `,
 });
 
-Vue.component('OurFourthHeader', {
+Vue.component("OurFourthHeader", {
   props: {
-    text: String
+    text: String,
   },
   template: `
     <h1>{{text}}</h1>  
-  `
+  `,
 });
 
-Vue.component('OurFifthHeader', {
+Vue.component("OurFifthHeader", {
   props: {
     text: {
       type: String,
-      default: 'App Header 5',
+      default: "App Header 5",
       required: false,
-      validator: function(value) {
-        return value.toLowerCase().indexOf('app') > -1;
-      }
-    }
+      validator: function (value) {
+        return value.toLowerCase().indexOf("app") > -1;
+      },
+    },
   },
   template: `
     <h1>{{text}}</h1>  
-  `
+  `,
 });
 
 var app = new Vue({
-  el: '#app',
+  el: "#app",
   data: {
     appLabelBad: 0,
-    appLabel: 'App'
+    appLabel: "App",
   },
   template: `
       <div>
@@ -49,5 +49,5 @@ var app = new Vue({
 
       
       </div>
-      `
+      `,
 });

@@ -1,18 +1,17 @@
-// With file inputs, you cannot use v-model. 
-// To access the selected value, the change event will have to be used with v-on. 
-
+// With file inputs, you cannot use v-model.
+// To access the selected value, the change event will have to be used with v-on.
 
 var app = new Vue({
-    el: '#app',
-    data: {
-        fileName: ''
+  el: "#app",
+  data: {
+    fileName: "",
+  },
+  methods: {
+    fileChanged: function (event) {
+      this.fileName = event.target.files[0].name;
     },
-    methods: {
-        fileChanged: function(event) {
-            this.fileName = event.target.files[0].name;
-        }
-    },
-    template: `
+  },
+  template: `
   <div>
     <h4>File</h4>
     <!-- <input type="file" v-model="inputs.file" /> -->
@@ -21,5 +20,5 @@ var app = new Vue({
         <strong>File:</strong> {{fileName}}
     </p>   
   </div>
-  `
+  `,
 });
