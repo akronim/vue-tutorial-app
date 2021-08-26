@@ -1,0 +1,35 @@
+wrapper.attributes(): 
+Returns Wrapper DOM node attribute object
+
+wrapper.classes(): 
+Return Wrapper DOM node classes
+
+wrapper.destroy(): 
+Destroys a Vue component instance
+
+wrapper.emitted(): 
+Return an object containing custom events emitted by the Wrapper vm
+
+wrapper.find(): 
+Returns Wrapper of first DOM node or Vue component matching selector
+
+wrapper.findAll(): 
+Returns a WrapperArray
+
+wrapper.html(): 
+Returns HTML of Wrapper DOM node as a string
+
+wrapper.isVisible(): 
+Assert Wrapper is visible
+
+wrapper.setData(): 
+Sets Wrapper vm data
+
+wrapper.setProps(): 
+Sets Wrapper vm props and forces update
+
+wrapper.text(): 
+Returns text content of Wrapper
+
+wrapper.trigger(): 
+Triggers an event asynchronously on the Wrapper DOM node
