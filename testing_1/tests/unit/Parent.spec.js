@@ -11,14 +11,16 @@ describe("Parent", () => {
     expect(wrapper.find("span").element).not.toBeVisible();
   });
 
-  // it("does render a span", () => {
+  // it.only("does render a span", () => {
   //   const wrapper = mount(Parent, {
   //     data() {
   //       return { showSpan: true };
   //     },
   //   });
 
-  //   expect(wrapper.find("span").element).toBeVisible();
+  //   const element = wrapper.find("span").element;
+
+  //   expect(element).toBeVisible();
   // });
 
   it("does not render a Child component", () => {

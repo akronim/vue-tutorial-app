@@ -27,6 +27,8 @@ describe("ComponentWithButtons", () => {
       {},
       { msg: "Test Commit" }
     );
+
+    expect(mutations.testMutation).toHaveBeenCalled();
   });
 
   it("dispatch a namespaced action when button is clicked", async () => {
@@ -61,5 +63,7 @@ describe("ComponentWithButtons", () => {
     expect(mockStore.dispatch).toHaveBeenCalledWith("testAction", {
       msg: "Test Dispatch",
     });
+
+    expect(mockStore.dispatch).toHaveBeenCalled();
   });
 });
