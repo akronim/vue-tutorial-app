@@ -6,18 +6,18 @@
 </template>
 
 <script>
-import Child from "./Child.vue";
+import Child from './Child.vue'
 
 export default {
-  name: "Parent",
+  name: 'Parent',
 
   components: { Child },
 
-  data() {
+  data () {
     return {
       showSpan: false,
-      showChild: false,
-    };
-  },
-};
+      showChild: false
+    }
+  }
+}
 </script>

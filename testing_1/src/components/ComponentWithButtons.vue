@@ -12,22 +12,22 @@
 
 <script>
 export default {
-  name: "ComponentWithButtons",
+  name: 'ComponentWithButtons',
 
   methods: {
-    handleCommit() {
-      this.$store.commit("testMutation", { msg: "Test Commit" });
+    handleCommit () {
+      this.$store.commit('testMutation', { msg: 'Test Commit' })
     },
 
-    handleDispatch() {
-      this.$store.dispatch("testAction", { msg: "Test Dispatch" });
+    handleDispatch () {
+      this.$store.dispatch('testAction', { msg: 'Test Dispatch' })
     },
 
-    handleNamespacedDispatch() {
-      this.$store.dispatch("namespaced/very/deeply/testAction", {
-        msg: "Test Namespaced Dispatch",
-      });
-    },
-  },
-};
+    handleNamespacedDispatch () {
+      this.$store.dispatch('namespaced/very/deeply/testAction', {
+        msg: 'Test Namespaced Dispatch'
+      })
+    }
+  }
+}
 </script>

@@ -13,22 +13,22 @@
 
 <script>
 export default {
-  name: "OnClick",
+  name: 'OnClick',
   props: {
     name: {
       type: String,
-      required: true,
-    },
+      required: true
+    }
   },
   data: () => ({
-    done: false,
+    done: false
   }),
   methods: {
-    onHabitDone() {
-      this.done = !this.done;
-    },
-  },
-};
+    onHabitDone () {
+      this.done = !this.done
+    }
+  }
+}
 </script>
 
 <style scoped>

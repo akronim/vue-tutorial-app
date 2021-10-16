@@ -5,11 +5,11 @@
 </template>
 
 <script>
-import Child from "./Child.vue";
+import Child from './Child.vue'
 
 export default {
-  name: "ParentWithManyChildren",
+  name: 'ParentWithManyChildren',
 
-  components: { Child },
-};
+  components: { Child }
+}
 </script>

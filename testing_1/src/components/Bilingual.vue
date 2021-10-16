@@ -6,6 +6,6 @@
 
 <script>
 export default {
-  name: "Bilingual",
-};
+  name: 'Bilingual'
+}
 </script>

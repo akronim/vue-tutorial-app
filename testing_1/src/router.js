@@ -1,19 +1,19 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-import routes from "./routes.js";
-import { bustCache } from "@/bust-cache.js";
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import routes from './routes.js'
+import { bustCache } from '@/bust-cache.js'
 
-Vue.use(VueRouter);
+Vue.use(VueRouter)
 
-const router = new VueRouter({ routes });
+const router = new VueRouter({ routes })
 
-export function beforeEach(to, from, next) {
+export function beforeEach (to, from, next) {
   if (to.matched.some((record) => record.meta.shouldBustCache)) {
-    bustCache();
+    bustCache()
   }
-  next();
+  next()
 }
 
-router.beforeEach((to, from, next) => beforeEach(to, from, next));
+router.beforeEach((to, from, next) => beforeEach(to, from, next))
 
-export default router;
+export default router

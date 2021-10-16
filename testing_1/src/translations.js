@@ -1,8 +1,8 @@
 export default {
   en: {
-    helloWorld: "Hello world!",
+    helloWorld: 'Hello world!'
   },
   ja: {
-    helloWorld: "こんにちは、世界！",
-  },
-};
+    helloWorld: 'こんにちは、世界！'
+  }
+}

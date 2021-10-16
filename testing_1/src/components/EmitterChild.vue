@@ -4,10 +4,10 @@
 
 <script>
 export default {
-  name: "EmitterChild",
-  mounted() {
-    console.log("EmitterChild mounted");
-    this.$emit("custom");
-  },
-};
+  name: 'EmitterChild',
+  mounted () {
+    console.log('EmitterChild mounted')
+    this.$emit('custom')
+  }
+}
 </script>

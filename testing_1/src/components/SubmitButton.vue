@@ -10,17 +10,17 @@
 
 <script>
 export default {
-  name: "SubmitButton",
+  name: 'SubmitButton',
 
   props: {
     msg: {
       type: String,
-      required: true,
+      required: true
     },
     isAdmin: {
       type: Boolean,
-      default: false,
-    },
-  },
-};
+      default: false
+    }
+  }
+}
 </script>

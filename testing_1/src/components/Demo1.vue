@@ -16,29 +16,29 @@
 
 <script>
 export default {
-  name: "App",
-  data() {
+  name: 'App',
+  data () {
     return {
       x1: Math.ceil(Math.random() * 100),
       x2: Math.ceil(Math.random() * 100),
-      guess: "",
-      message: "",
-    };
+      guess: '',
+      message: ''
+    }
   },
   methods: {
-    check() {
+    check () {
       if (this.x1 + this.x2 === parseInt(this.guess)) {
-        this.message = "SUCCESS!";
+        this.message = 'SUCCESS!'
       } else {
-        this.message = "TRY AGAIN";
+        this.message = 'TRY AGAIN'
       }
     },
-    refresh() {
-      this.x1 = Math.ceil(Math.random() * 100);
-      this.x2 = Math.ceil(Math.random() * 100);
-    },
-  },
-};
+    refresh () {
+      this.x1 = Math.ceil(Math.random() * 100)
+      this.x2 = Math.ceil(Math.random() * 100)
+    }
+  }
+}
 </script>
 
 <style>

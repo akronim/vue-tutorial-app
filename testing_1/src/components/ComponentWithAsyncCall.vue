@@ -3,21 +3,21 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from 'axios'
 
 export default {
-  name: "ComponentWithAsyncCall",
+  name: 'ComponentWithAsyncCall',
 
-  created() {
-    this.makeApiCall();
+  created () {
+    this.makeApiCall()
   },
 
   methods: {
-    async makeApiCall() {
+    async makeApiCall () {
       /* eslint-disable no-console */
-      console.log("===== Making api call");
-      await axios.get("https://jsonplaceholder.typicode.com/posts/1");
-    },
-  },
-};
+      console.log('===== Making api call')
+      await axios.get('https://jsonplaceholder.typicode.com/posts/1')
+    }
+  }
+}
 </script>

@@ -8,12 +8,12 @@
 
 <script>
 export default {
-  name: "ComponentWithVuex",
+  name: 'ComponentWithVuex',
 
-  data() {
+  data () {
     return {
-      username: this.$store.state.username,
-    };
-  },
-};
+      username: this.$store.state.username
+    }
+  }
+}
 </script>

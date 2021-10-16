@@ -1,57 +1,57 @@
-import flushPromises from "flush-promises";
-import { mount } from "@vue/test-utils";
-import FormSubmitter from "@/components/FormSubmitter.vue";
+import flushPromises from 'flush-promises'
+import { mount } from '@vue/test-utils'
+import FormSubmitter from '@/components/FormSubmitter.vue'
 
 // mock this.$http
-let url = "";
-let data = "";
+let url = ''
+let data = ''
 
 const mockHttp = {
   get: (_url, _data) => {
     return new Promise((resolve) => {
-      url = _url;
-      data = _data;
-      resolve(); //  simulate a successful API response
-    });
-  },
-};
+      url = _url
+      data = _data
+      resolve() //  simulate a successful API response
+    })
+  }
+}
 
-describe("FormSubmitter", () => {
-  it("reveals a notification when submitted", async () => {
-    const wrapper = mount(FormSubmitter);
+describe('FormSubmitter', () => {
+  it('reveals a notification when submitted', async () => {
+    const wrapper = mount(FormSubmitter)
 
-    wrapper.find("[data-username]").setValue("alice");
-    wrapper.find("form").trigger("submit.prevent");
+    wrapper.find('[data-username]').setValue('alice')
+    wrapper.find('form').trigger('submit.prevent')
 
     // you need to call nextTick to ensure Vue's reactivity system updates the DOM
-    await wrapper.vm.$nextTick();
+    await wrapper.vm.$nextTick()
 
-    expect(wrapper.find(".message").text()).toBe(
-      "Thank you for your submission, alice."
-    );
-  });
+    expect(wrapper.find('.message').text()).toBe(
+      'Thank you for your submission, alice.'
+    )
+  })
 
-  it("reveals a notification when submitted", async () => {
+  it('reveals a notification when submitted', async () => {
     const wrapper = mount(FormSubmitter, {
-      data() {
+      data () {
         return {
-          asyncTest: true,
-        };
+          asyncTest: true
+        }
       },
       mocks: {
-        $http: mockHttp,
-      },
-    });
+        $http: mockHttp
+      }
+    })
 
-    await wrapper.find("[data-username]").setValue("alice");
-    await wrapper.find("form").trigger("submit.prevent");
+    await wrapper.find('[data-username]').setValue('alice')
+    await wrapper.find('form').trigger('submit.prevent')
 
-    await flushPromises();
+    await flushPromises()
 
-    expect(wrapper.find(".message").text()).toBe(
-      "Thank you for your submission, alice."
-    );
-    expect(url).toBe("/api/v1/register");
-    expect(data).toEqual({ username: "alice" });
-  });
-});
+    expect(wrapper.find('.message').text()).toBe(
+      'Thank you for your submission, alice.'
+    )
+    expect(url).toBe('/api/v1/register')
+    expect(data).toEqual({ username: 'alice' })
+  })
+})

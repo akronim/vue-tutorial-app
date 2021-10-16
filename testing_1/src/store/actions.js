@@ -1,16 +1,16 @@
-import axios from "axios";
+import axios from 'axios'
 
 export default {
-  async authenticate({ commit }, { username, password }) {
+  async authenticate ({ commit }, { username, password }) {
     try {
-      const authenticated = await axios.post("/api/authenticate", {
+      const authenticated = await axios.post('/api/authenticate', {
         username,
-        password,
-      });
+        password
+      })
 
-      commit("SET_AUTHENTICATED", authenticated);
+      commit('SET_AUTHENTICATED', authenticated)
     } catch (e) {
-      throw Error("API Error occurred.");
+      throw Error('API Error occurred.')
     }
-  },
-};
+  }
+}

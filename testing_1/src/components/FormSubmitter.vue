@@ -17,31 +17,31 @@
 
 <script>
 export default {
-  name: "FormSubmitter",
+  name: 'FormSubmitter',
 
-  data() {
+  data () {
     return {
-      username: "",
+      username: '',
       submitted: false,
-      asyncTest: false,
-    };
+      asyncTest: false
+    }
   },
 
   methods: {
-    handleSubmit() {
-      this.submitted = true;
+    handleSubmit () {
+      this.submitted = true
     },
 
-    handleSubmitAsync() {
+    handleSubmitAsync () {
       return this.$http
-        .get("/api/v1/register", { username: this.username })
+        .get('/api/v1/register', { username: this.username })
         .then(() => {
-          this.submitted = true;
+          this.submitted = true
         })
         .catch((e) => {
-          throw Error("Something went wrong", e);
-        });
-    },
-  },
-};
+          throw Error('Something went wrong', e)
+        })
+    }
+  }
+}
 </script>

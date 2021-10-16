@@ -8,12 +8,12 @@
 // import { mapGetters } from "vuex"
 
 export default {
-  name: "ComponentWithGetters",
+  name: 'ComponentWithGetters',
 
   computed: {
-    fullname() {
-      return this.$store.getters.fullname;
-    },
+    fullname () {
+      return this.$store.getters.fullname
+    }
 
     /**
      * mapGetters helper can be used
@@ -21,6 +21,6 @@ export default {
      *   'fullname'
      * ])
      */
-  },
-};
+  }
+}
 </script>

@@ -7,36 +7,34 @@
 </template>
 
 <script>
-import Vue from "vue";
-import VueCompositionApi from "@vue/composition-api";
+import Vue from 'vue'
+import VueCompositionApi, { reactive, computed } from '@vue/composition-api'
 
-Vue.use(VueCompositionApi);
-
-import { reactive, computed } from "@vue/composition-api";
+Vue.use(VueCompositionApi)
 
 export default {
-  name: "CompositionApi",
+  name: 'CompositionApi',
 
   props: {
     message: {
-      type: String,
-    },
+      type: String
+    }
   },
 
-  setup(props) {
+  setup (props) {
     const state = reactive({
-      count: 0,
-    });
+      count: 0
+    })
 
     const increment = () => {
-      state.count += 1;
-    };
+      state.count += 1
+    }
 
     return {
       state,
       increment,
-      uppercasedMessage: computed(() => props.message.toUpperCase()),
-    };
-  },
-};
+      uppercasedMessage: computed(() => props.message.toUpperCase())
+    }
+  }
+}
 </script>

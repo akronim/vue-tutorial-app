@@ -6,21 +6,21 @@
 </template>
 
 <script>
-import EmitterChild from "./EmitterChild";
+import EmitterChild from './EmitterChild'
 
 export default {
-  name: "EmitterParent",
+  name: 'EmitterParent',
   components: { EmitterChild },
-  data() {
+  data () {
     return {
-      emitted: false,
-    };
+      emitted: false
+    }
   },
   methods: {
-    onCustom() {
-      console.log("EmitterParent onCustom");
-      this.emitted = true;
-    },
-  },
-};
+    onCustom () {
+      console.log('EmitterParent onCustom')
+      this.emitted = true
+    }
+  }
+}
 </script>

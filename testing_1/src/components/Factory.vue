@@ -12,19 +12,19 @@
 
 <script>
 export default {
-  name: "Factory",
+  name: 'Factory',
 
-  data() {
+  data () {
     return {
-      message: "Welcome to the Vue.js cookbook",
-      username: "",
-    };
+      message: 'Welcome to the Vue.js cookbook',
+      username: ''
+    }
   },
 
   computed: {
-    error() {
-      return this.username.trim().length < 7;
-    },
-  },
-};
+    error () {
+      return this.username.trim().length < 7
+    }
+  }
+}
 </script>

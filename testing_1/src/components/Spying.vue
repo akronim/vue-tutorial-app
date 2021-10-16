@@ -7,21 +7,21 @@
 
 <script>
 export default {
-  name: "YesNoComponent",
+  name: 'YesNoComponent',
 
   props: {
     callMe: {
-      type: Function,
-    },
+      type: Function
+    }
   },
 
   methods: {
-    callYes() {
-      this.callMe("yes");
+    callYes () {
+      this.callMe('yes')
     },
-    callNo() {
-      this.callMe("no");
-    },
-  },
-};
+    callNo () {
+      this.callMe('no')
+    }
+  }
+}
 </script>

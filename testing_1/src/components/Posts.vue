@@ -17,25 +17,25 @@
 
 <script>
 export default {
-  name: "Posts",
+  name: 'Posts',
   props: {
-    message: String,
+    message: String
   },
 
   computed: {
-    authenticated() {
-      return this.$store.state.authenticated;
+    authenticated () {
+      return this.$store.state.authenticated
     },
 
-    posts() {
-      return this.$store.state.posts;
-    },
+    posts () {
+      return this.$store.state.posts
+    }
   },
 
   methods: {
-    postLink(id) {
-      return `/posts/${id}`;
-    },
-  },
-};
+    postLink (id) {
+      return `/posts/${id}`
+    }
+  }
+}
 </script>

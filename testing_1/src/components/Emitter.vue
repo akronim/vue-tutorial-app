@@ -4,14 +4,14 @@
 
 <script>
 export default {
-  name: "Emitter",
+  name: 'Emitter',
 
   methods: {
-    emitEvent() {
-      this.$emit("myEvent", "name", "password");
-    },
-  },
-};
+    emitEvent () {
+      this.$emit('myEvent', 'name', 'password')
+    }
+  }
+}
 </script>
 
 <style scoped></style>

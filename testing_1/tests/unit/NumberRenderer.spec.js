@@ -1,16 +1,16 @@
-import { mount } from "@vue/test-utils";
-import NumberRenderer from "@/components/NumberRenderer.vue";
+import { mount } from '@vue/test-utils'
+import NumberRenderer from '@/components/NumberRenderer.vue'
 
-describe("NumberRenderer", () => {
-  it("renders even numbers", () => {
+describe('NumberRenderer', () => {
+  it('renders even numbers', () => {
     const wrapper = mount(NumberRenderer, {
       propsData: {
-        even: true,
-      },
-    });
+        even: true
+      }
+    })
 
-    expect(wrapper.text()).toBe("2, 4, 6, 8");
-  });
+    expect(wrapper.text()).toBe('2, 4, 6, 8')
+  })
 
   // The call method is vanilla JavaScript used to call a function
   // and pass to it an argument that will set this for that function.
@@ -21,11 +21,11 @@ describe("NumberRenderer", () => {
   // executing in your computed unit test.
   // - You want to stub out some values on this.
   // Using call and passing a custom context can be useful.
-  it("renders odd numbers", () => {
-    const localThis = { even: false };
+  it('renders odd numbers', () => {
+    const localThis = { even: false }
 
     expect(NumberRenderer.computed.numbers.call(localThis)).toBe(
-      "1, 3, 5, 7, 9"
-    );
-  });
-});
+      '1, 3, 5, 7, 9'
+    )
+  })
+})

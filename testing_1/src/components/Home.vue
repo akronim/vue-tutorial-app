@@ -1,8 +1,12 @@
 <template>
-  <div>Foo</div>
+  <h1>Home</h1>
 </template>
+
 <script>
 export default {
-  name: 'FooRoute'
+  name: 'Home'
 }
 </script>
+
+<style>
+</style>
