@@ -2,24 +2,18 @@ import { mount, config } from "@vue/test-utils";
 import OnClick from "@/components/OnClick";
 
 describe("OnClick", () => {
-  it("makes sure the habit name is rendered", () => {
-    const habitName = "Learn something new";
-    const wrapper = mount(OnClick, {
-      propsData: {
-        name: habitName,
-      },
-    });
-    expect(wrapper.props().name).toBe(habitName);
-    expect(wrapper.text()).toContain(habitName);
-  });
-
   it("marks the habit as completed", async () => {
     const wrapper = mount(OnClick, {
       propsData: {
         name: "Learn something new",
       },
     });
+
+    // locate and get a wrapper for the element
     const box = wrapper.find(".habit__box");
+
+    // simulate the click:
+    // test must be ASYNC and that trigger needs to be AWAITed
     await box.trigger("click");
     expect(box.text()).toContain("✔");
   });
@@ -38,18 +32,5 @@ describe("OnClick", () => {
     const box = wrapper.find(".habit__box");
     await box.trigger("click");
     expect(wrapper.vm.onHabitDone).toHaveBeenCalled();
-  });
-
-  it("updates the habit method", async () => {
-    const wrapper = mount(OnClick, {
-      propsData: {
-        name: "Learn something new",
-      },
-    });
-    const newHabitName = "Brush my teeth";
-    await wrapper.setProps({
-      name: newHabitName,
-    });
-    expect(wrapper.props().name).toBe(newHabitName);
   });
 });

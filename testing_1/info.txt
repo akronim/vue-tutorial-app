@@ -1,3 +1,5 @@
+https://vue-test-utils.vuejs.org/
+
 wrapper.attributes(): 
 Returns Wrapper DOM node attribute object
 
@@ -33,3 +35,13 @@ Returns text content of Wrapper
 
 wrapper.trigger(): 
 Triggers an event asynchronously on the Wrapper DOM node
+
+Dealing with Routing
+Since routing by definition has to do with the overall structure of 
+the application and involves multiple components, it is best tested via 
+integration or end-to-end tests. 
+For individual components that rely on vue-router features, you can mock 
+them using the techniques mentioned above.
+
+
+Together, spies, stubs and mocks are known as test doubles. 
