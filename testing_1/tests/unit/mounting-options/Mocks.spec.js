@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils'
 import Bilingual from '@/components/Bilingual.vue'
 import FooRoute from '@/components/FooRoute.vue'
-import translations from '@/translations'
+import i18n from '@/plugins/i18n'
 import sinon from 'sinon'
 
 // mocks
@@ -12,18 +12,20 @@ describe('Bilingual', () => {
   it('renders successfully', () => {
     const wrapper = mount(Bilingual, {
       mocks: {
-        $t: (msg) => translations.en[msg]
+        $t: (msg) => i18n.messages.de[msg]
       }
     })
 
-    expect(wrapper.find('.hello').text()).not.toBe('')
+    expect(wrapper.find('.hello').text()).toBe('Hallo Welt!')
     console.log(wrapper.html())
   })
 
+  // here we use default mock, that is set using config (jest.init.js)
+  // jest.init.js is loaded before the tests are run
   it('renders successfully', () => {
     const wrapper = mount(Bilingual)
 
-    expect(wrapper.find('.hello').text()).not.toBe('')
+    expect(wrapper.find('.hello').text()).toBe('Bonjour le monde!')
     console.log(wrapper.html())
   })
 })

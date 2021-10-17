@@ -1,6 +1,6 @@
 import { config } from '@vue/test-utils'
-import translations from './src/translations.js'
+import i18n from './src/plugins/i18n.js'
 
-const locale = 'en'
+const locale = 'fr'
 
-config.mocks.$t = (msg) => translations[locale][msg]
+config.mocks.$t = (msg) => i18n.messages[locale][msg]

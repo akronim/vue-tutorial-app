@@ -2,6 +2,7 @@ import NestedRoute from '@/components/NestedRoute.vue'
 import FooRoute from '@/components/FooRoute.vue'
 import BarRoute from '@/components/BarRoute.vue'
 import Home from '@/components/Home'
+import Bilingual from '@/components/Bilingual'
 
 export default [
   {
@@ -17,5 +18,6 @@ export default [
     }
   },
   { path: '/foo/:username', name: 'foo', component: FooRoute },
-  { path: '/bar', component: BarRoute }
+  { path: '/bar', component: BarRoute },
+  { path: '/bilingual', component: Bilingual }
 ]

@@ -13,6 +13,9 @@
       <li>
         <router-link to="/nested-route"> Nested </router-link>
       </li>
+      <li>
+        <router-link to="/bilingual"> Bilingual </router-link>
+      </li>
     </ul>
     <router-view />
   </div>
