@@ -39,9 +39,8 @@ describe('OnClick', () => {
     })
     const box = wrapper.find('.habit__box')
     await box.trigger('click')
-    // eslint-disable-next-line no-unused-expressions
+
     expect(wrapper.vm.onHabitDone).to.have.been.called
-    // eslint-disable-next-line no-unused-expressions
     expect(mockMethod).to.have.been.called
   })
 })

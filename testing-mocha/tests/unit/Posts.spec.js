@@ -52,7 +52,7 @@ describe('Posts.vue', () => {
       }
     )
 
-    expect(wrapper.find('.new-post').exists()).to.eq(true)
+    expect(wrapper.find('.new-post').exists()).to.be.true
   })
 
   it('does not render new post link if not authenticated', async () => {

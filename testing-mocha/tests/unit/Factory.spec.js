@@ -24,13 +24,13 @@ describe('Factory', () => {
   it('renders an error when username is less than 7 characters', () => {
     const wrapper = factory({ username: '' })
 
-    expect(wrapper.find('.error').exists()).to.eq(true)
+    expect(wrapper.find('.error').exists()).to.be.true
   })
 
   it('renders an error when username is whitespace', () => {
     const wrapper = factory({ username: ' '.repeat(7) })
 
-    expect(wrapper.find('.error').exists()).to.eq(true)
+    expect(wrapper.find('.error').exists()).to.be.true
   })
 
   it('does not render an error when username is 7 characters or more', () => {

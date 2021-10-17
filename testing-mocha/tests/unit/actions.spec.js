@@ -1,40 +1,48 @@
-// import actions from '@/store/actions.js'
-// import { expect } from 'chai'
+import actions from '@/store/actions.js'
+import { expect } from 'chai'
+import sinon from 'sinon'
+import axios from 'axios'
 
-// let url = ''
-// let body = {}
-// let mockError = false
+let url = ''
+let data = {}
+let mockError = false
 
-// jest.mock('axios', () => ({
-//   post: (_url, _body) => {
-//     return new Promise((resolve) => {
-//       if (mockError) throw Error('Mock error')
+describe('authenticate', () => {
+  beforeEach(() => {
+    // axios.post = sinon.stub().returns(Promise.resolve(true))
+    // sinon.stub(axios, 'post').returns(Promise.resolve(true))
 
-//       url = _url
-//       body = _body
-//       resolve(true)
-//     })
-//   }
-// }))
+    sinon.stub(axios, 'post').callsFake(function (_url, _data, _config) {
+      if (mockError) throw Error('Mock error')
 
-// describe('authenticate', () => {
-//   it('authenticated a user', async () => {
-//     const commit = jest.fn()
-//     const username = 'alice'
-//     const password = 'password'
+      url = _url
+      data = _data
+      return Promise.resolve(true)
+    })
+  })
+  afterEach(() => {
+    sinon.restore()
+  })
+  it('authenticated a user', async () => {
+    const commit = sinon.spy()
+    const username = 'alice'
+    const password = 'password'
 
-//     await actions.authenticate({ commit }, { username, password })
+    await actions.authenticate({ commit }, { username, password })
 
-//     expect(url).toBe('/api/authenticate')
-//     expect(body).toEqual({ username, password })
-//     expect(commit).toHaveBeenCalledWith('SET_AUTHENTICATED', true)
-//   })
+    expect(url).to.eq('/api/authenticate')
+    expect(data).to.deep.eq({ username, password })
+    expect(commit).to.have.been.calledWith('SET_AUTHENTICATED', true)
+  })
 
-//   it('catches an error', async () => {
-//     mockError = true
+  it('catches an error', async () => {
+    mockError = true
 
-//     await expect(
-//       actions.authenticate({ commit: jest.fn() }, {})
-//     ).rejects.toThrow('API Error occurred.')
-//   })
-// })
+    try {
+      await actions.authenticate({ commit: sinon.spy() }, {})
+    } catch (err) {
+      console.log(err.message)
+      expect(err.message).to.eql('API Error occurred.')
+    }
+  })
+})

@@ -16,6 +16,6 @@ describe('Shallow mounting', () => {
   it('renders with shallowMount and does not initialize API call', () => {
     const wrapper = shallowMount(ParentWithAPICallChild)
 
-    expect(wrapper.findComponent(ComponentWithAsyncCall).exists()).to.eq(true)
+    expect(wrapper.findComponent(ComponentWithAsyncCall).exists()).to.be.true
   })
 })

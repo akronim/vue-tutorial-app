@@ -16,7 +16,7 @@ describe('Spying.vue', () => {
     await wrapper.find('button.yes').trigger('click')
 
     expect(spy.callCount).to.eq(1)
-    expect(spy.calledOnce).to.eq(true)
-    expect(spy.calledOnceWith('yes')).to.eq(true)
+    expect(spy.calledOnce).to.be.true
+    expect(spy.calledOnceWith('yes')).to.be.true
   })
 })

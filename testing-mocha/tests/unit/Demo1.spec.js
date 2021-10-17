@@ -13,7 +13,7 @@ describe('Mounted Demo1', () => {
   const wrapper = mount(Demo1)
 
   it('is a Vue instance', () => {
-    expect(wrapper.isVueInstance()).to.eq(true)
+    expect(wrapper.isVueInstance()).to.be.true
   })
 
   it('renders the correct markup', () => {
