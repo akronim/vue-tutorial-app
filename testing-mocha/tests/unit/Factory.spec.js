@@ -1,0 +1,41 @@
+import { shallowMount } from '@vue/test-utils'
+import Factory from '@/components/Factory.vue'
+import { expect } from 'chai'
+
+const factory = (values = {}) => {
+  return shallowMount(Factory, {
+    data () {
+      return {
+        ...values
+      }
+    }
+  })
+}
+
+describe('Factory', () => {
+  it('renders a welcome message', () => {
+    const wrapper = factory()
+
+    expect(wrapper.find('.message').text()).to.eq(
+      'Welcome to the Vue.js cookbook'
+    )
+  })
+
+  it('renders an error when username is less than 7 characters', () => {
+    const wrapper = factory({ username: '' })
+
+    expect(wrapper.find('.error').exists()).to.eq(true)
+  })
+
+  it('renders an error when username is whitespace', () => {
+    const wrapper = factory({ username: ' '.repeat(7) })
+
+    expect(wrapper.find('.error').exists()).to.eq(true)
+  })
+
+  it('does not render an error when username is 7 characters or more', () => {
+    const wrapper = factory({ username: 'Lachlan' })
+
+    expect(wrapper.find('.error').exists()).to.eq(false)
+  })
+})
