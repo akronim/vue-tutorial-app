@@ -2,6 +2,7 @@ import { mount } from '@vue/test-utils'
 import Bilingual from '@/components/Bilingual.vue'
 import FooRoute from '@/components/FooRoute.vue'
 import translations from '@/translations'
+import sinon from 'sinon'
 
 // mocks
 // Add additional properties to the instance.
@@ -28,24 +29,46 @@ describe('Bilingual', () => {
 })
 
 describe('FooRoute', () => {
-  it('renders successfully', () => {
-    const $route = {
+  let wrapper
+  let mockRoute
+  let mockRouter
+  beforeEach(() => {
+    mockRoute = {
       path: '/foo',
+      name: 'foo',
       hash: '',
-      params: { id: '123' },
+      params: { username: 'josh' },
       query: { q: 'hello' }
     }
-
-    const wrapper = mount(FooRoute, {
+    mockRouter = {
+      push: sinon.spy(),
+      currentRoute: { path: mockRoute.path + '/' + mockRoute.params.username }
+    }
+    wrapper = mount(FooRoute, {
       mocks: {
-        // adds mocked `$route` object to the Vue instance
+        // adds mocked route object to the Vue instance
         // before mounting component
-        $route
+        $route: mockRoute,
+        $router: mockRouter
       }
     })
+  })
 
+  it('renders successfully', () => {
     expect(wrapper.text()).toContain('Foo')
-    expect(wrapper.vm.$route.path).toBe($route.path)
+
+    expect(wrapper.vm.$route.path).toEqual(mockRoute.path)
+
+    expect(wrapper.find('.username').text()).toEqual('josh')
+
+    expect(wrapper.vm.currentRoute).toEqual('foo')
+
     console.log(wrapper.html())
+  })
+
+  it('navigates to the home page', () => {
+    wrapper.vm.goToHome()
+    sinon.assert.calledWith(mockRouter.push, { name: 'home' })
+    // TODO test redirection
   })
 })

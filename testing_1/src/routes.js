@@ -6,7 +6,8 @@ import Home from '@/components/Home'
 export default [
   {
     path: '/',
-    component: Home
+    component: Home,
+    name: 'home'
   },
   {
     path: '/nested-route',
@@ -15,6 +16,6 @@ export default [
       shouldBustCache: true
     }
   },
-  { path: '/foo', component: FooRoute },
+  { path: '/foo/:username', name: 'foo', component: FooRoute },
   { path: '/bar', component: BarRoute }
 ]

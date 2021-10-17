@@ -5,7 +5,7 @@
         <router-link to="/"> Home </router-link>
       </li>
       <li>
-        <router-link to="/foo"> Foo </router-link>
+        <router-link to="/foo/janice"> Foo </router-link>
       </li>
       <li>
         <router-link to="/bar"> Bar </router-link>
