@@ -1,9 +1,9 @@
-import { beforeEach as routerBeforeEach } from '@/router.js'
+import { routerBeforeEach } from '@/router.js'
 import { expect } from 'chai'
 import sinon from 'sinon'
 const mockModule = require('@/bust-cache.js')
 
-describe.only('beforeEach', () => {
+describe('beforeEach', () => {
   let bustCacheSpy
   beforeEach(() => {
     // bustCacheSpy = sinon.stub(mockModule, 'bustCache')
