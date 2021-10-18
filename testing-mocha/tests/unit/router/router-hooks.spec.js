@@ -1,35 +1,39 @@
-// import { beforeEach } from '@/router.js'
-// import mockModule from '@/bust-cache.js'
-// import { expect } from 'chai'
+import { beforeEach as routerBeforeEach } from '@/router.js'
+import { expect } from 'chai'
+import sinon from 'sinon'
+const mockModule = require('@/bust-cache.js')
 
-// jest.mock('@/bust-cache.js', () => ({ bustCache: jest.fn() }))
+describe.only('beforeEach', () => {
+  let bustCacheSpy
+  beforeEach(() => {
+    // bustCacheSpy = sinon.stub(mockModule, 'bustCache')
+    bustCacheSpy = sinon.spy(mockModule, 'bustCache')
+  })
+  afterEach(() => {
+    sinon.restore()
+  })
 
-// describe('beforeEach', () => {
-//   afterEach(() => {
-//     mockModule.bustCache.mockClear()
-//   })
+  it('busts the cache when going to /user', () => {
+    const to = {
+      matched: [{ meta: { shouldBustCache: true } }]
+    }
+    const next = sinon.spy()
 
-//   it('busts the cache when going to /user', () => {
-//     const to = {
-//       matched: [{ meta: { shouldBustCache: true } }]
-//     }
-//     const next = jest.fn()
+    routerBeforeEach(to, undefined, next)
 
-//     beforeEach(to, undefined, next)
+    expect(bustCacheSpy).to.have.been.called
+    expect(next).to.have.been.called
+  })
 
-//     expect(mockModule.bustCache).toHaveBeenCalled()
-//     expect(next).toHaveBeenCalled()
-//   })
+  it('busts the cache when going to /user 2', () => {
+    const to = {
+      matched: [{ meta: { shouldBustCache: false } }]
+    }
+    const next = sinon.spy()
 
-//   it('busts the cache when going to /user', () => {
-//     const to = {
-//       matched: [{ meta: { shouldBustCache: false } }]
-//     }
-//     const next = jest.fn()
+    routerBeforeEach(to, undefined, next)
 
-//     beforeEach(to, undefined, next)
-
-//     expect(mockModule.bustCache).not.toHaveBeenCalled()
-//     expect(next).toHaveBeenCalled()
-//   })
-// })
+    expect(bustCacheSpy).not.to.have.been.called
+    expect(next).to.have.been.called
+  })
+})
