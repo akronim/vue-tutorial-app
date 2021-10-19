@@ -43,7 +43,7 @@ describe('with mock: getPhotosByAlbumId', () => {
   })
 })
 
-// a method should always be mocked it if has no impact on calling method
+// a method should always be mocked if it has no impact on calling method
 // instead of real call a dummy call should be used
 // by mocking a real function call is ignored
 describe('TestDemo - mocking', () => {
