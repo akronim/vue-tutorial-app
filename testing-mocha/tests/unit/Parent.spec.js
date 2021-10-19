@@ -1,50 +1,52 @@
-// import { mount } from '@vue/test-utils'
-// import '@testing-library/jest-dom'
-// import Parent from '@/components/Parent.vue'
-// import ParentWithManyChildren from '@/components/ParentWithManyChildren.vue'
-// import Child from '@/components/Child.vue'
-// import { expect } from 'chai'
+import { mount } from '@vue/test-utils'
+import chai, { expect } from 'chai'
+import chaiDom from 'chai-dom'
+import Parent from '@/components/Parent.vue'
+import ParentWithManyChildren from '@/components/ParentWithManyChildren.vue'
+import Child from '@/components/Child.vue'
 
-// describe('Parent', () => {
-//   it('does not render a span', () => {
-//     const wrapper = mount(Parent)
+chai.use(chaiDom)
 
-//     expect(wrapper.find('span').element).not.toBeVisible()
-//   })
+describe('Parent', () => {
+  it('does not render a span', () => {
+    const wrapper = mount(Parent)
 
-//   // it.only("does render a span", () => {
-//   //   const wrapper = mount(Parent, {
-//   //     data() {
-//   //       return { showSpan: true };
-//   //     },
-//   //   });
+    expect(wrapper.find('span').element).not.to.be.displayed
+  })
 
-//   //   const element = wrapper.find("span").element;
+  it('does render a span', () => {
+    const wrapper = mount(Parent, {
+      data () {
+        return { showSpan: true }
+      }
+    })
 
-//   //   expect(element).toBeVisible();
-//   // });
+    const element = wrapper.find('span').element
 
-//   it('does not render a Child component', () => {
-//     const wrapper = mount(Parent)
+    expect(element).to.be.displayed
+  })
 
-//     expect(wrapper.findComponent(Child).exists()).toBe(false)
-//   })
+  it('does not render a Child component', () => {
+    const wrapper = mount(Parent)
 
-//   it('renders a Child component', () => {
-//     const wrapper = mount(Parent, {
-//       data () {
-//         return { showChild: true }
-//       }
-//     })
+    expect(wrapper.findComponent(Child).exists()).to.be.false
+  })
 
-//     expect(wrapper.findComponent({ name: 'Child' }).exists()).toBe(true)
-//   })
-// })
+  it('renders a Child component', () => {
+    const wrapper = mount(Parent, {
+      data () {
+        return { showChild: true }
+      }
+    })
 
-// describe('ParentWithManyChildren', () => {
-//   it('renders many children', () => {
-//     const wrapper = mount(ParentWithManyChildren)
+    expect(wrapper.findComponent({ name: 'Child' }).exists()).to.be.true
+  })
+})
 
-//     expect(wrapper.findAllComponents(Child).length).toBe(3)
-//   })
-// })
+describe('ParentWithManyChildren', () => {
+  it('renders many children', () => {
+    const wrapper = mount(ParentWithManyChildren)
+
+    expect(wrapper.findAllComponents(Child).length).to.eq(3)
+  })
+})
