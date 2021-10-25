@@ -1,16 +1,16 @@
 import { mount } from '@vue/test-utils'
-import Demo1 from '@/components/Demo1.vue'
+import BasicInspection from '@/components/BasicInspection.vue'
 import { expect } from 'chai'
 
-describe('Demo1', () => {
+describe('BasicInspection', () => {
   // Inspect the raw component options
   it('has data', () => {
-    expect(typeof Demo1.data).to.eq('function')
+    expect(typeof BasicInspection.data).to.eq('function')
   })
 })
 
-describe('Mounted Demo1', () => {
-  const wrapper = mount(Demo1)
+describe('Mounted BasicInspection', () => {
+  const wrapper = mount(BasicInspection)
 
   it('is a Vue instance', () => {
     expect(wrapper.isVueInstance()).to.be.true

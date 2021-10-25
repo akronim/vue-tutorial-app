@@ -7,3 +7,10 @@ export default {
     return getters.poodles.filter((dog) => dog.age === age)
   }
 }
+
+// calling
+// computed: {
+//   puppies() {
+//     return this.$store.getters.poodlesByAge(1)
+//   }
+// }

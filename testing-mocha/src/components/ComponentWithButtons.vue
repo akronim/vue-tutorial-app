@@ -2,6 +2,10 @@
   <div>
     <button class="commit" @click="handleCommit">Commit</button>
 
+    <button class="namespaced-commit" @click="handleNamespacedCommit">
+      Namespaced Commit
+    </button>
+
     <button class="dispatch" @click="handleDispatch">Dispatch</button>
 
     <button class="namespaced-dispatch" @click="handleNamespacedDispatch">
@@ -17,6 +21,12 @@ export default {
   methods: {
     handleCommit () {
       this.$store.commit('testMutation', { msg: 'Test Commit' })
+    },
+
+    handleNamespacedCommit () {
+      this.$store.commit('namespaced/very/deeply/testMutation', {
+        msg: 'Test Namespaced Commit'
+      })
     },
 
     handleDispatch () {

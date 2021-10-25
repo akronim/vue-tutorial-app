@@ -5,22 +5,20 @@
 </template>
 
 <script>
-// import { mapGetters } from "vuex"
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'ComponentWithGetters',
 
   computed: {
-    fullname () {
-      return this.$store.getters.fullname
-    }
+    // fullname () {
+    //   return this.$store.getters.fullname
+    // },
 
-    /**
-     * mapGetters helper can be used
-     * ...mapGetters([
-     *   'fullname'
-     * ])
-     */
+    // or like this
+    ...mapGetters([
+      'fullname'
+    ])
   }
 }
 </script>

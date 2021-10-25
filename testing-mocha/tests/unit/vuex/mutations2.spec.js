@@ -1,4 +1,4 @@
-import { mutations, getters } from '../../src/store_2'
+import { mutations, getters } from '@/store_2'
 import { expect } from 'chai'
 
 describe('store 2:  extending an existing object with additional property', () => {
