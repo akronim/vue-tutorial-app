@@ -1,0 +1,45 @@
+POST http://localhost:5555/api/v1/users HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "phone": "654321",
+    "email": "jane.doe@example.com",
+    "username": "test",
+    "password": "test123"
+}
+
+###
+
+POST http://localhost:5555/api/v1/auth/login HTTP/1.1
+content-type: application/json
+
+{
+    "username": "test",
+    "password": "test123"
+}
+
+###
+
+GET http://localhost:5555/api/v1/users HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InVHQkxnM2FqVSIsImZpcnN0TmFtZSI6IkphbmUiLCJsYXN0TmFtZSI6IkRvZSIsInBob25lIjoiNjU0MzIxIiwiZW1haWwiOiJqYW5lLmRvZUBleGFtcGxlLmNvbSIsInVzZXJuYW1lIjoidGVzdCIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE2MzYyMjE4NTAsImV4cCI6MTYzNjQ4MTA1MH0.FAwvRK2lg-ADwKLfENre-PD3LZpNJcD2JDzdqggmdxw
+
+####
+
+PUT http://localhost:5555/api/v1/users HTTP/1.1
+content-type: application/json
+
+{
+      "id": "RZtkkxEc6U",
+      "firstName": "Tom",
+      "lastName": "Moore",
+      "phone": "132435",
+      "email": "ingemar.sigert@example.com"
+}
+
+###
+
+DELETE http://localhost:5555/api/v1/users/88DsUAe0TFR HTTP/1.1
+
+###

@@ -1,0 +1,80 @@
+{
+  "books": [
+    {
+      "id": "1M5ntXCRlJL",
+      "title": "Lorem ipsum",
+      "author": "Average Joe",
+      "publishDate": "2014-12-14",
+      "publisher": "Press X",
+      "numOfPages": 472
+    },
+    {
+      "id": "Y50YZ5XqmET",
+      "title": "Dolor sit amet",
+      "author": "Foo Bar",
+      "publishDate": "2012-07-01",
+      "publisher": "O'Reilly",
+      "numOfPages": 254
+    },
+    {
+      "id": "i5d12Bgqs0",
+      "title": "Duis aute",
+      "author": "John Doe",
+      "publishDate": "2014-02-01",
+      "publisher": "O'Reilly",
+      "numOfPages": 460
+    }
+  ],
+  "users": [
+    {
+      "id": "CY7Li16NtU",
+      "firstName": "Justin",
+      "lastName": "Lee",
+      "phone": "123456",
+      "email": "justin.lee@example.com",
+      "username": "test0",
+      "password": "$2a$10$xvRVks0zHGvT8TY.vni18eLxrQdwbHrSw4G2UNrfkrAU0fHShOdmW",
+      "roles": ["ROLE_ADMIN", "ROLE_MODERATOR"]
+    },
+    {
+      "id": "RZtkkxEc6U",
+      "firstName": "Ingemar",
+      "lastName": "Sigert",
+      "phone": "123456",
+      "email": "ingemar.sigert@example.com",
+      "username": "test1",
+      "password": "$2a$10$xvRVks0zHGvT8TY.vni18eLxrQdwbHrSw4G2UNrfkrAU0fHShOdmW",
+      "roles": ["ROLE_MODERATOR"]
+    },
+    {
+      "id": "epvlqHUAin",
+      "firstName": "Daniel",
+      "lastName": "Roast",
+      "phone": "33333333",
+      "email": "daniel.roast@example.com",
+      "username": "test2",
+      "password": "$2a$10$xvRVks0zHGvT8TY.vni18eLxrQdwbHrSw4G2UNrfkrAU0fHShOdmW",
+      "roles": ["ROLE_USER"]
+    },
+    {
+      "id": "LBKPuoS1Au",
+      "firstName": "David",
+      "lastName": "Neo",
+      "phone": "222222222",
+      "email": "david.neo@example.com",
+      "username": "test3",
+      "password": "$2a$10$xvRVks0zHGvT8TY.vni18eLxrQdwbHrSw4G2UNrfkrAU0fHShOdmW",
+      "roles": ["ROLE_USER"]
+    },
+    {
+      "id": "88DsUAe0TFR",
+      "firstName": "Jhon",
+      "lastName": "Mac",
+      "phone": "111111111",
+      "email": "jhon.mac@example.com",
+      "username": "test4",
+      "password": "$2a$10$xvRVks0zHGvT8TY.vni18eLxrQdwbHrSw4G2UNrfkrAU0fHShOdmW",
+      "roles": ["ROLE_USER"]
+    }
+  ]
+}
