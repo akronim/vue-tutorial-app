@@ -5,7 +5,7 @@
     <div class="bg-primary text-white m-2 p-3">
       <h3 v-bind:text-content.prop="textContent"></h3>
     </div>
-    <button v-on:click="handleClick_9" class="btn btn-primary">Press Me</button>
+    <button v-on:click="handleClick" class="btn btn-primary">Press Me</button>
   </div>
 </template>
 
@@ -20,34 +20,25 @@ export default {
     return {
       // changing the value is automatically reflected throughout the application
       name: "Lifejacket",
-      highlight_9: false,
+      highlight: false,
     };
   },
   // - this property is used to generate values based on data properties
   // - you have to use this keyword to access the data properties
   computed: {
     textContent() {
-      return this.highlight_9 ? "Highlight!" : `Product: ${this.name}`;
+      return this.highlight ? "Highlight!" : `Product: ${this.name}`;
     },
   },
   // we can define a method to compute a value (better approach if it allows us to
   // reuse the same code)
   // - methods are able to define parameters
   methods: {
-    handleClick_9() {
-      this.highlight_9 = !this.highlight_9;
+    handleClick() {
+      this.highlight = !this.highlight;
     },
-  },
-  // functions used to format the result of an expression
-  filters: {
-    // functions used for filters cannot access the rest of component's data
-    // filters are allowed to accept arguments
-  },
+  }
 };
 </script>
-
-
-<style>
-</style>
 
 

@@ -9,7 +9,7 @@
         <th>Price</th>
       </tr>
       <tbody>
-        <tr v-for="p in pageItems_e12" v-bind:key="p.name">
+        <tr v-for="p in pageItems" v-bind:key="p.name">
           <td>{{ p.name }}</td>
           <td>{{ p. price | currency }}</td>
         </tr>
@@ -18,34 +18,27 @@
     <div class="text-center">
       <button
         class="btn btn-secondary m-1"
-        v-on:click="toggleSort_e12"
-        v-bind:class="{'bg-primary': sort_e12}"
+        v-on:click="togglefiltersort"
+        v-bind:class="{'bg-primary': filtersort}"
       >Toggle Sort</button>
       <button
         class="btn btn-secondary m-1"
-        v-on:click="toggleFilter_e12"
-        v-bind:class="{'bg-primary': filter_e12}"
+        v-on:click="togglefilter"
+        v-bind:class="{'bg-primary': filter}"
       >Toggle Filter</button>
       <!-- eslint-disable-next-line vue/require-v-for-key -->
       <button
-        v-for="i in pageCount_e12"
+        v-for="i in pageCount"
         v-bind:key="i + 'pageBtn'"
-        v-on:click="selectPage_e12(i)"
+        v-on:click="selectPage(i)"
         class="btn btn-secondary m-1"
-        v-bind:class="{'bg-primary': currentPage_e12 == i}"
+        v-bind:class="{'bg-primary': currentPage == i}"
       >{{ i }}</button>
     </div>
   </div>
 </template>
 
 <script>
-import Vue from "vue";
-
-// global filter
-Vue.filter("capitalize", (value) => {
-  return value[0].toUpperCase() + value.slice(1);
-});
-
 // component's configuration object
 export default {
   // The Vue DevTools browser extension uses the optional "name" property to show
@@ -55,10 +48,10 @@ export default {
   data: function () {
     return {
       // changing the value is automatically reflected throughout the application
-      pageSize_e12: 3 /* number of items per page */,
-      currentPage_e12: 1,
-      filter_e12: false,
-      sort_e12: false,
+      pageSize: 3 /* number of items per page */,
+      currentPage: 1,
+      filter: false,
+      filtersort: false,
       products: [
         { name: "Kayak", price: 275 },
         { name: "Lifejacket", price: 48.95 },
@@ -75,21 +68,21 @@ export default {
   // - this property is used to generate values based on data properties
   // - you have to use this keyword to access the data properties
   computed: {
-    pageCount_e12() {
+    pageCount() {
       // returns number of pages that the application requires
-      return Math.ceil(this.dataItems_e12.length / this.pageSize_e12);
+      return Math.ceil(this.dataItems.length / this.pageSize);
     },
-    pageItems_e12() {
+    pageItems() {
       // returns the data objects required for the current page
-      let start = (this.currentPage_e12 - 1) * this.pageSize_e12;
-      return this.dataItems_e12.slice(start, start + this.pageSize_e12);
+      let start = (this.currentPage - 1) * this.pageSize;
+      return this.dataItems.slice(start, start + this.pageSize);
     },
-    dataItems_e12() {
+    dataItems() {
       // prepare data for display
-      let data = this.filter_e12
+      let data = this.filter
         ? this.products.filter((p) => p.price > 100)
         : this.products;
-      return this.sort_e12
+      return this.filtersort
         ? data.concat().sort((p1, p2) => p2.price - p1.price)
         : data;
     },
@@ -98,29 +91,22 @@ export default {
   // reuse the same code)
   // - methods are able to define parameters
   methods: {
-    selectPage_e12(page) {
-      this.currentPage_e12 = page;
+    selectPage(page) {
+      this.currentPage = page;
     },
-    toggleFilter_e12() {
-      this.filter_e12 = !this.filter_e12;
-      this.currentPage_e12 = 1;
+    togglefilter() {
+      this.filter = !this.filter;
+      this.currentPage = 1;
     },
-    toggleSort_e12() {
-      this.sort_e12 = !this.sort_e12;
-      this.currentPage_e12 = 1;
+    togglefiltersort() {
+      this.filtersort = !this.filtersort;
+      this.currentPage = 1;
     },
-  },
-  // functions used to format the result of an expression
-  filters: {
-    // functions used for filters cannot access the rest of component's data
-    // filters are allowed to accept arguments
-  },
+  }
 };
 </script>
 
 
-<style>
-/* */
-</style>
+
 
 

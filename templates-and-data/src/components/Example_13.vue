@@ -11,16 +11,16 @@
     </div>
 
     <div class="bg-primary text-white m-2 p-3 text-center">
-      <h3 v-on:click="handleEvent_13">{{name}}</h3>
+      <h3 v-on:click="handleEvent">{{name}}</h3>
     </div>
 
     <div class="bg-primary text-white m-2 p-3 text-center">
-      <h3 v-on:click="handleEvent_13B('Soccer Ball', $event)">{{name}}</h3>
+      <h3 v-on:click="handleEvent_B('Soccer Ball', $event)">{{name}}</h3>
     </div>
 
     <!-- directive shorthand -->
     <div class="bg-primary text-white m-2 p-3 text-center">
-      <h3 @click="handleEvent_13B('Stadium', $event)">{{name}}</h3>
+      <h3 @click="handleEvent_B('Stadium', $event)">{{name}}</h3>
     </div>
 
     <div class="container-fluid">
@@ -39,9 +39,9 @@
             <td>
               <button
                 class="btn btn-sm bg-primary text-white"
-                v-on:click="handleClick_13C(name)"
-                v-on:mousemove="handleMouseEvent_13C(name, $event)"
-                v-on:mouseleave="handleMouseEvent_13C(name, $event)"
+                v-on:click="handleClick_C(name)"
+                v-on:mousemove="handleMouseEvent_C(name, $event)"
+                v-on:mouseleave="handleMouseEvent_C(name, $event)"
               >Select</button>
             </td>
             <td>
@@ -62,13 +62,6 @@
 </template>
 
 <script>
-import Vue from "vue";
-
-// global filter
-Vue.filter("capitalize", (value) => {
-  return value[0].toUpperCase() + value.slice(1);
-});
-
 // component's configuration object
 export default {
   // The Vue DevTools browser extension uses the optional "name" property to show
@@ -82,31 +75,26 @@ export default {
       message: "Ready",
       names: ["Kayak", "Lifejacket", "Soccer Ball", "Stadium"],
       buttonEvents: {
-        click: this.handleClick_13D,
-        mouseleave: this.handleMouseEvent_13D,
-        mousemove: this.handleMouseEvent_13D,
+        click: this.handleClick_D,
+        mouseleave: this.handleMouseEvent_D,
+        mousemove: this.handleMouseEvent_D,
       },
     };
-  },
-  // - this property is used to generate values based on data properties
-  // - you have to use this keyword to access the data properties
-  computed: {
-    //
   },
   // we can define a method to compute a value (better approach if it allows us to
   // reuse the same code)
   // - methods are able to define parameters
   methods: {
-    handleEvent_13($event) {
+    handleEvent($event) {
       this.name = $event.type + " " + $event.target.nodeName;
     },
-    handleEvent_13B(name, $event) {
+    handleEvent_B(name, $event) {
       this.name = `${name} - ${$event.type}`;
     },
-    handleClick_13C(name) {
+    handleClick_C(name) {
       this.message = `${name}`;
     },
-    handleMouseEvent_13C(name, $event) {
+    handleMouseEvent_C(name, $event) {
       if ($event.type == "mousemove") {
         this.message = `Move in ${name} ${this.counter++}`;
       } else {
@@ -114,11 +102,11 @@ export default {
         this.message = "Ready";
       }
     },
-    handleClick_13D($event) {
+    handleClick_D($event) {
       let name = $event.target.dataset.name;
       this.message = `${name}`;
     },
-    handleMouseEvent_13D($event) {
+    handleMouseEvent_D($event) {
       let name = $event.target.dataset.name;
       if ($event.type == "mousemove") {
         this.message = `Move in ${name} ${this.counter++}`;
@@ -127,18 +115,11 @@ export default {
         this.message = "Ready";
       }
     },
-  },
-  // functions used to format the result of an expression
-  filters: {
-    // functions used for filters cannot access the rest of component's data
-    // filters are allowed to accept arguments
-  },
+  }
 };
 </script>
 
 
-<style>
-/* */
-</style>
+
 
 

@@ -42,12 +42,7 @@ export default {
     handleClick_8() {
       this.highlight_8 = !this.highlight_8;
     },
-  },
-  // functions used to format the result of an expression
-  filters: {
-    // functions used for filters cannot access the rest of component's data
-    // filters are allowed to accept arguments
-  },
+  }
 };
 </script>
 

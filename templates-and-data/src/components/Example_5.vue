@@ -61,11 +61,6 @@ export default {
       this.highlight_5B = !this.highlight_5B;
     },
   },
-  // functions used to format the result of an expression
-  filters: {
-    // functions used for filters cannot access the rest of component's data
-    // filters are allowed to accept arguments
-  },
 };
 </script>
 

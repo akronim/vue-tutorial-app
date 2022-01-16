@@ -7,18 +7,11 @@
       defined in the style element-->
       <h3 v-bind:data-size-aha="size">Product: {{name}}</h3>
     </div>
-    <button v-on:click="handleClick_7" class="btn btn-primary">Press Me</button>
+    <button v-on:click="handleClick" class="btn btn-primary">Press Me</button>
   </div>
 </template>
 
 <script>
-import Vue from "vue";
-
-// global filter
-Vue.filter("capitalize", (value) => {
-  return value[0].toUpperCase() + value.slice(1);
-});
-
 // component's configuration object
 export default {
   // The Vue DevTools browser extension uses the optional "name" property to show
@@ -29,28 +22,23 @@ export default {
     return {
       // changing the value is automatically reflected throughout the application
       name: "Lifejacket",
-      highlight_7: false,
+      highlight: false,
     };
   },
   // - this property is used to generate values based on data properties
   // - you have to use this keyword to access the data properties
   computed: {
     size() {
-      return this.highlight_7 ? "big" : "small";
+      return this.highlight ? "big" : "small";
     },
   },
   // we can define a method to compute a value (better approach if it allows us to
   // reuse the same code)
   // - methods are able to define parameters
   methods: {
-    handleClick_7() {
-      this.highlight_7 = !this.highlight_7;
+    handleClick() {
+      this.highlight = !this.highlight;
     },
-  },
-  // functions used to format the result of an expression
-  filters: {
-    // functions used for filters cannot access the rest of component's data
-    // filters are allowed to accept arguments
   },
 };
 </script>
