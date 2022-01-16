@@ -1,0 +1,185 @@
+
+Store
+- we can reference the store directly in our templates using $store
+
+	<template>
+	  <p>{{ $store.state.count }}</p>
+	</template>
+
+- we can return some store state from within a computed property
+-the $store property returns the data store, and the state property is 
+ used to access individual data properties
+
+	<template>
+	  <p>{{ count }}</p>
+	</template>
+
+	<script>
+	export default {
+	  computed: {
+	    count() {
+	      return this.$store.state.count;
+	    }
+	  }
+	}
+	</script>
+
+- The mapState Helper
+
+	<template>
+	  <div>
+	    <p>Welcome, {{ loggedInUser.name }}.</p>
+	    <p>Count is {{ count }}.</p>
+	  </div>
+	</template>
+
+	<script>
+	import { mapState } from 'vuex';
+
+	export default {
+	  computed: mapState({
+	    count: state => state.count,
+	    loggedInUser: state => state.loggedInUser
+	  })
+	}
+	</script>
+
+
+- mapState and $store can only be used in components
+
+- elsewhere we can use import statement to access the data store
+	import dataStore from "../store";
+
+	dataStore.state...
+	or
+	...
+	dataStore.commit("setComponentLoading", true);
+	...
+
+Computed
+- if there are any calculations we need to perform on the state before we use it
+- you have to use this keyword to access the data properties
+- used to define properties that operate on the application’s data
+
+created()
+- gets called when Vue.js creates the component - an opportunity to load the data
+  
+
+Getters
+- getters feature is the equivalent of a computed property in a component
+- if there are complex calculations to be performed and/or they are needed in multiple components
+- receive the state as their first argument
+- getters should not make changes to the data in the store!!!
+
+	getters: {
+	  depletedProducts: state => {
+	    return state.products.filter(product => product.stock <= 0)
+	  }
+	}
+- one getter can build on the result of another getter:
+        filteredProducts(state, getters) {
+            return getters.orderedProducts.filter(p => p.price > 100);
+        }
+
+- accessing a getter from a component
+- Reading a getter is done through the this.$store.getters property and uses the name of the getter
+
+	computed: {
+	  depletedProducts() {
+	    return this.$store.getters.depletedProducts;
+	  }
+	}
+
+- Getters can also receive additional arguments that are provided by the component
+        filteredProducts(state, getters) {
+            // Providing Arguments to Getters
+            return (amount) => getters.orderedProducts.filter(p => p.price > amount);
+        }
+
+	- use:
+	this.$store.getters.filteredProducts(175);
+
+- the mapGetters Helper
+
+	  computed: {
+	    ...mapGetters([
+	      'depletedProducts',
+	      'anotherGetter'
+	    ])
+	  }
+
+
+Mutations
+- to make changes in our state
+- it’s only purpose is updating the state
+- receive the state as their first argument and an optional payload argument
+- we do not call a mutation directly
+- we have to commit a mutation : this.$store.commit('increment');
+- we can pass some data : this.$store.commit('increment', 5);
+- Mutations perform synchronous operations, which means they are perfect for dealing 
+  with local data but are not suitable for working with a RESTful web service
+- you don’t use the this keyword in mutations
+- Applying mutations to a data store is done through the $store.commit methods
+	this.$store.commit("deleteProduct", product);
+
+- The mapMutations Helper
+
+	  methods: {
+	    ...mapMutations([
+	      'increment', // maps to this.increment()
+	      'incrementBy' // maps to this.incrementBy(amount)
+	    ])
+	  }
+
+
+Actions
+- an action contains business logic
+- they don't change the state directly as mutations do 
+- not permitted to modify the state data directly and must work through mutations, using the commit method
+- have access to a context object that provides access to the state, getters, and mutations
+  (context.commit, context.state, context.getters ...)
+- they carry out asynchronous operations and then commit mutations : context.commit
+- we dispatch actions : this.$store.dispatch('incrementAsync');
+- dispatch an action with an optional argument: this.$store.dispatch("deleteProductAction", product);
+
+- The mapActions Helper
+- you can use the mapActions helper to assign action handlers to local methods
+
+  methods: {
+    ...mapActions([
+      'incrementBy', // maps this.increment(amount) to this.$store.dispatch(increment)
+      'incrementAsync', // maps this.incrementAsync() to this.$store.dispatch(incrementAsync)
+      add: 'increment' // maps this.add() to this.$store.dispatch(increment)
+    ])
+  }
+
+ or
+
+	...mapActions({
+	    getProducts: "getProductsAction",
+	    deleteProduct: "deleteProductAction"
+	})
+
+
+Watchers
+- trigger notifications when a data value changes
+- accessed as this.$store.watch
+- accepts two functions:
+	1) the first function is used to select the data value to watch
+	2) the second function is invoked when there is a change to the selected data
+
+
+nuxt
+  // async asyncData({ app }) {
+  //   const { data } = await app.apolloProvider.defaultClient.query({
+  //     query: meGql
+  //   })
+  //   return { users: data.me.managedUsers }
+  // },
+  // data() {
+  //   return {
+  //     users: []
+  //   }
+  // },
+
+
