@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-primary text-white text-center m-2 p-3 h6">
+  <div class="bg-primary text-white text-center m-2 p-3 h6 child">
     <div class="form-group m-1 text-left">
       <label>Name</label>
       <input v-model="product.name" class="form-control" />
@@ -35,3 +35,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.child {
+  border: 5px solid red;
+}
+</style>

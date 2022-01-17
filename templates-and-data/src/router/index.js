@@ -29,6 +29,9 @@ import Example_24 from "../components/Example_24";
 import Example_25 from "../components/Example_25";
 import Example_26 from "../components/Example_26";
 import Example_27 from "../components/Example_27";
+import Example_28 from "../components/Example_28";
+import Example_29 from "../components/Example_29";
+import Example_30 from "../components/Example_30";
 
 Vue.use(VueRouter);
 
@@ -67,6 +70,9 @@ export default new VueRouter({
         { path: "/l1/e25", component: Example_25 },
         { path: "/l1/e26", component: Example_26 },
         { path: "/l1/e27", component: Example_27 },
+        { path: "/l1/e28", component: Example_28 },
+        { path: "/l1/e29", component: Example_29 },
+        { path: "/l1/e30", component: Example_30 },
       ],
     },
 

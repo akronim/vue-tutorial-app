@@ -1,44 +1,56 @@
 <template>
-  <div class="bg-primary text-white text-center m-2 p-3 h6">
+  <div class="bg-primary text-white text-center h6 p-2 m-2 child">
     <!-- Vue.js provides a feature called slots, which allow a parent component to 
     provide content through which the features provided by the child component 
     will be displayed.-->
+    <slot> <!-- unnamed slot --> </slot>
+
     <slot name="header">
       <h4>Use the form fields to edit the data</h4>
     </slot>
-    <div class="form-group m-1 text-left">
-      <label>Name</label>
-      <input v-model="product.name" class="form-control" />
-    </div>
-    <div class="form-group m-1 text-left">
-      <label>Category</label>
-      <input v-model="product.category" class="form-control" />
-    </div>
-    <div class="form-group m-1 text-left">
-      <label>Price</label>
-      <input v-model.number="product.price" class="form-control" />
-    </div>
+
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John</td>
+          <td>Doe</td>
+          <td>john@example.com</td>
+        </tr>
+        <tr>
+          <td>Mary</td>
+          <td>Moe</td>
+          <td>mary@example.com</td>
+        </tr>
+        <tr>
+          <td>July</td>
+          <td>Dooley</td>
+          <td>july@example.com</td>
+        </tr>
+      </tbody>
+    </table>
+
     <slot name="footer"></slot>
-    <div class="mt-2">
-      <button class="btn btn-info" v-on:click="doSubmit">Submit</button>
-    </div>
   </div>
 </template>
+
+
 <script>
 export default {
-  props: ["initialProduct"],
-  data: function () {
-    return {
-      product: this.initialProduct || {},
-    };
-  },
-  methods: {
-    doSubmit() {
-      // this method allows the component to communicate with its parent
-      // the $emit method, called using the this keyword, is used to send
-      // a custom event
-      this.$emit("productSubmit", this.product);
-    },
-  },
+  // The Vue DevTools browser extension uses the optional "name" property to show
+  // the structure of the application
+  name: "Child_3",
 };
 </script>
+
+<style scoped>
+.child {
+  border: 5px solid red;
+}
+</style>

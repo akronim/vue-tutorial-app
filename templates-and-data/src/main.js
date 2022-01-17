@@ -6,7 +6,7 @@ import router from "./router";
 Vue.config.productionTip = false;
 
 // REGISTERING COMPONENTS GLOBALLY
-// import ChildComponent from "./components/Child";
+// import ChildComponent from "./components/Child_1";
 // Vue.component("child-component", ChildComponent);
 
 // creating a global filter

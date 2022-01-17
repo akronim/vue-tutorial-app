@@ -1,9 +1,3 @@
-<!-- components are defined with:
-  1) template element
-  2) script element
-  3) style element
- -->
-
 <template>
   <div>
     <!-- binding to radio buttons and checkboxes -->
@@ -35,7 +29,7 @@
     <!-- binding to radio buttons and checkboxes with v-for -->
     <div class="container-fluid">
       <div class="bg-info m2 p-2 text-white">
-        <div>Name: {{name}}</div>
+        <div>Name 2: {{name}}</div>
       </div>
 
       <div class="bg-primary m-2 p-2 text-white">
@@ -49,7 +43,7 @@
     <!-- binding to select elements -->
     <div class="container-fluid">
       <div class="bg-info m2 p-2 text-white">
-        <div>Name: {{name}}</div>
+        <div>Name 3: {{name}}</div>
       </div>
 
       <div class="bg-primary m-2 p-2 text-white">
@@ -80,28 +74,9 @@ export default {
       allNames: ["Bob", "Alice", "Joe"],
     };
   },
-  // - this property is used to generate values based on data properties
-  // - you have to use this keyword to access the data properties
-  computed: {
-    //
-  },
-  // we can define a method to compute a value (better approach if it allows us to
-  // reuse the same code)
-  // - methods are able to define parameters
-  methods: {
-    //
-  },
-  // functions used to format the result of an expression
-  filters: {
-    // functions used for filters cannot access the rest of component's data
-    // filters are allowed to accept arguments
-  },
 };
 </script>
 
 
-<style>
-/* */
-</style>
 
 

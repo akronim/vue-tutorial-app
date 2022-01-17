@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-primary text-white text-center m-2 p-3 h6">
+  <div class="bg-primary text-white text-center m-2 p-3 h6 child">
     {{ message }}
     <div class="form-group m-1">
       <div class="form-group m-1 text-left">
@@ -17,6 +17,7 @@ export default {
   // props are received from the parent component
   // we add a prop using an array of strings
   // to modify the prop's value you must use a data or computed property
+  // - prop should be used to initialize a data property
   props: ["labelText", "initialValue"],
   data: function () {
     return {
@@ -31,7 +32,7 @@ export default {
 the elements in the current component’s template element and not to elements 
 in the templates of other components. -->
 <style scoped>
-div {
+.child {
   border: 5px solid red;
 }
 </style>

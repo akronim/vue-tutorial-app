@@ -10,13 +10,6 @@
 </template>
 
 <script>
-import Vue from "vue";
-
-// global filter
-Vue.filter("capitalize", (value) => {
-  return value[0].toUpperCase() + value.slice(1);
-});
-
 // component's configuration object
 export default {
   // The Vue DevTools browser extension uses the optional "name" property to show
@@ -47,17 +40,8 @@ export default {
     handleClick_6() {
       this.highlight_6 = !this.highlight_6;
     },
-  },
-  // functions used to format the result of an expression
-  filters: {
-    // functions used for filters cannot access the rest of component's data
-    // filters are allowed to accept arguments
-  },
+  }
 };
 </script>
-
-
-<style>
-</style>
 
 

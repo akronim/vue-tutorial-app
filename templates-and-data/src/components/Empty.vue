@@ -4,6 +4,11 @@
   3) style element
  -->
 
+ <!-- 
+  If you want to make the parent responsible for specifying the HTML content
+    presented by a child element, then use the slots feature.
+  -->
+
 <template>
   <!-- routing system will be responsible for managing the content -->
   <!-- <router-view /> -->
@@ -44,6 +49,7 @@ export default {
   // props are received from the parent component
   // we add a prop using an array of strings
   // to modify the prop's value you must use a data or computed property
+  // - prop should be used to initialize a data property
   props: ["lorem", "ipsum"],
   // a specific pattern must be followed to define data values for a component
   data: function () {

@@ -2,13 +2,17 @@
   <div>
     <div class="bg-success text-white text-center m-2 p-2 h5">
       {{ message }}
-      <!-- Using a prop to configure a child component -->
-      <ChildComponent labelText="Name" initialValue="Kayak"></ChildComponent>
-      <child-component labelText="Name" initialValue="Kayak"></child-component>
-      <MyFeature label-text="Category" initial-value="Watersports"></MyFeature>
+      <div class="form-group">
+        <!-- The result is that when the parent component’s input element is edited, the new value is received by
+          the child component -->
+        <input class="form-control" v-model="labelText" />
+      </div>
+      <!-- Using an Expression -->
+      <!-- set up a one-way binding between the child component’s labelText prop 
+      and the parent component’s data property-->
       <my-feature
-        label-text="Category"
-        initial-value="Watersports"
+        v-bind:label-text="labelText"
+        initial-value="Kayak"
       ></my-feature>
     </div>
   </div>
@@ -23,7 +27,6 @@ export default {
   // the structure of the application
   name: "App",
   components: {
-    ChildComponent,
     MyFeature: ChildComponent,
   },
   // a specific pattern must be followed to define data values for a component
@@ -33,7 +36,7 @@ export default {
       message: "This is the parent component",
       labelText: "Name",
     };
-  }
+  },
 };
 </script>
 

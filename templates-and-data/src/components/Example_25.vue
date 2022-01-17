@@ -1,9 +1,3 @@
-<!-- components are defined with:
-  1) template element
-  2) script element
-  3) style element
- -->
-
 <template>
   <div>
     <!-- v-model : formating values as numbers -->
@@ -130,17 +124,9 @@ export default {
       this.cities = [];
     },
   },
-  // functions used to format the result of an expression
-  filters: {
-    // functions used for filters cannot access the rest of component's data
-    // filters are allowed to accept arguments
-  },
 };
 </script>
 
 
-<style>
-/* */
-</style>
 
 

@@ -1,9 +1,3 @@
-<!-- components are defined with:
-  1) template element
-  2) script element
-  3) style element
- -->
-
 <template>
   <div class="container-fluid">
     <div class="bg-danger text-white my-2 p-2" v-if="errors">
@@ -118,14 +112,6 @@ export default {
       }
     },
   },
-  // functions used to format the result of an expression
-  filters: {
-    // functions used for filters cannot access the rest of component's data
-    // filters are allowed to accept arguments
-  },
 };
 </script>
 
-<style>
-/* */
-</style>
