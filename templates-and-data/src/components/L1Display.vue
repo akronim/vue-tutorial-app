@@ -31,6 +31,7 @@
       <router-link to="/l1/e28" class="btn btn-secondary m-1">E28 parent-child v-bind</router-link>
       <router-link to="/l1/e29" class="btn btn-secondary m-1">E29 parent-child: event from a child</router-link>
       <router-link to="/l1/e30" class="btn btn-secondary m-1">E30 parent-child: slots 1</router-link>
+      <router-link to="/l1/e31" class="btn btn-secondary m-1">MutationObserver</router-link>
     <router-view />
   </div>
 </template>

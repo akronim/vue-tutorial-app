@@ -32,6 +32,7 @@ import Example_27 from "../components/Example_27";
 import Example_28 from "../components/Example_28";
 import Example_29 from "../components/Example_29";
 import Example_30 from "../components/Example_30";
+import MutationObserverDemo from "../components/MutationObserverDemo";
 
 Vue.use(VueRouter);
 
@@ -73,6 +74,7 @@ export default new VueRouter({
         { path: "/l1/e28", component: Example_28 },
         { path: "/l1/e29", component: Example_29 },
         { path: "/l1/e30", component: Example_30 },
+        { path: "/l1/e31", component: MutationObserverDemo },
       ],
     },
 
